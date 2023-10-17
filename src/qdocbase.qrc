@@ -1,0 +1,53 @@
+<RCC>
+    <qresource prefix="/images/png">
+        <file>images/3g2-1071.png</file>
+        <file>images/7z-452.png</file>
+        <file>images/arj-233.png</file>
+        <file>images/asc-4704.png</file>
+        <file>images/asp-8.png</file>
+        <file>images/aspx-9.png</file>
+        <file>images/avi-10.png</file>
+        <file>images/cdr-329.png</file>
+        <file>images/celular50x48.png</file>
+        <file>images/db-20.png</file>
+        <file>images/dbf-560.png</file>
+        <file>images/docbase-entity.png</file>
+        <file>images/docbase-images.png</file>
+        <file>images/docbase-search.png</file>
+        <file>images/docbase.png</file>
+        <file>images/docx.png</file>
+        <file>images/dotx-1756.png</file>
+        <file>images/dvi-568.png</file>
+        <file>images/dwg-256.png</file>
+        <file>images/dws-5288.png</file>
+        <file>images/fax50x48.png</file>
+        <file>images/generic.png</file>
+        <file>images/mdf-1372.png</file>
+        <file>images/mp3-58.png</file>
+        <file>images/mpa-625.png</file>
+        <file>images/odb-4855.png</file>
+        <file>images/ods-1215.png</file>
+        <file>images/odt-716.png</file>
+        <file>images/ogg-413.png</file>
+        <file>images/pagehtml.png</file>
+        <file>images/pct-73.png</file>
+        <file>images/pdf.png</file>
+        <file>images/pdf64.png</file>
+        <file>images/pdf128.png</file>
+        <file>images/pps-80.png</file>
+        <file>images/ppt-81.png</file>
+        <file>images/telefone50x48.png</file>
+        <file>images/txt-109.png</file>
+        <file>images/whatsapp-transparent.png</file>
+        <file>images/others.png</file>
+        <file>images/greencircle.png</file>
+        <file>images/redcircle.png</file>
+        <file>images/zip-128.png</file>
+        <file>images/docbase64x64.png</file>
+    </qresource>
+    <qresource prefix="/images/icon"/>
+    <qresource prefix="/images/gif"/>
+    <qresource prefix="/">
+        <file>i18n/qDocBase6_pt_BR.qm</file>
+    </qresource>
+</RCC>

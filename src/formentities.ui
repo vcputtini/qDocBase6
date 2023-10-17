@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormEntities</class>
+ <widget class="QWidget" name="FormEntities">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1352</width>
+    <height>749</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Entidades</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="qdocbase.qrc">
+    <normaloff>:/images/png/images/docbase64x64.png</normaloff>:/images/png/images/docbase64x64.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_Entities">
+     <item row="0" column="0">
+      <widget class="QFrame" name="frame_Fields_1">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>180</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QGroupBox" name="groupBox_Categories">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>150</y>
+          <width>141</width>
+          <height>219</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Categorias</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="radioButton_Company">
+           <property name="text">
+            <string>Empresas</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="radioButton_Customer">
+           <property name="text">
+            <string>Clientes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="radioButton_Suppliers">
+           <property name="text">
+            <string>Fornecedores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QRadioButton" name="radioButton_Projects">
+           <property name="text">
+            <string>Projetos</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QRadioButton" name="radioButton_Custom">
+           <property name="text">
+            <string>Personalizado</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QRadioButton" name="radioButton_Basic">
+           <property name="text">
+            <string>Básico</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_FieldRegActive">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>141</width>
+          <height>44</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QCheckBox" name="checkBox_RegActive">
+           <property name="text">
+            <string>Ativo</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>12</width>
+             <height>12</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLCDNumber" name="lcdNumber_counter">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Último registro cadastrado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="smallDecimalPoint">
+         <bool>false</bool>
+        </property>
+        <property name="digitCount">
+         <number>10</number>
+        </property>
+        <property name="segmentStyle">
+         <enum>QLCDNumber::Flat</enum>
+        </property>
+        <property name="intValue" stdset="0">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_CurrDate">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Data Corrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="text">
+         <string>00/00/0000</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QFrame" name="frame_Entities">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QToolBox" name="toolBox_Entities">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page_Search">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1126</width>
+             <height>645</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>Page 1</string>
+           </attribute>
+           <widget class="QFrame" name="frame_FindEntity">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>970</width>
+              <height>481</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>970</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_SearchNotes">
+               <property name="text">
+                <string>Escolha uma das categorias ao lado e selecione a entidade para edição por meio do duplo-click</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>367</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="2">
+              <widget class="QCheckBox" name="checkBox_showStates">
+               <property name="text">
+                <string>Ativos</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <property name="tristate">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QTableView" name="tableView_Entities">
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="sortingEnabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_Data">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1126</width>
+             <height>645</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>Page 2</string>
+           </attribute>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_Contact_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>280</y>
+              <width>361</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>40</number>
+            </property>
+            <property name="placeholderText">
+             <string>Contato</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_Contact_1">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>248</y>
+              <width>361</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>40</number>
+            </property>
+            <property name="placeholderText">
+             <string>Contato</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_Email_1">
+            <property name="geometry">
+             <rect>
+              <x>380</x>
+              <y>250</y>
+              <width>441</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>255</number>
+            </property>
+            <property name="placeholderText">
+             <string>e-Mail</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit_Email_2">
+            <property name="geometry">
+             <rect>
+              <x>380</x>
+              <y>280</y>
+              <width>441</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>255</number>
+            </property>
+            <property name="placeholderText">
+             <string>e-Mail</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_Alias">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>50</y>
+              <width>481</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>60</number>
+            </property>
+            <property name="placeholderText">
+             <string>Apelido</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_Address">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>80</y>
+              <width>481</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>60</number>
+            </property>
+            <property name="placeholderText">
+             <string>Endereço</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_District">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>481</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>60</number>
+            </property>
+            <property name="placeholderText">
+             <string>Bairro</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_City">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>140</y>
+              <width>481</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>60</number>
+            </property>
+            <property name="placeholderText">
+             <string>Cidade</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="comboBox_StatesAbbrev">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>140</y>
+              <width>79</width>
+              <height>26</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_Name">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>20</y>
+              <width>481</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="maxLength">
+             <number>60</number>
+            </property>
+            <property name="placeholderText">
+             <string>Nome/Razão Social</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="lineEdit_fieldChecking" name="lineEdit_AddrNumber">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>80</y>
+              <width>113</width>
+              <height>26</height>
+             </rect>
+            </property>
+            <property name="inputMask">
+             <string>999999</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>Número</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTextEdit" name="textEdit_Comments">
+            <property name="geometry">
+             <rect>
+              <x>830</x>
+              <y>10</y>
+              <width>291</width>
+              <height>301</height>
+             </rect>
+            </property>
+            <property name="placeholderText">
+             <string>Comentários / Informações adicionais para buscas avançadas.</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>590</x>
+              <y>140</y>
+              <width>237</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="lineEdit_fieldChecking" name="lineEdit_PostalCode">
+               <property name="inputMask">
+                <string>000.000-00</string>
+               </property>
+               <property name="placeholderText">
+                <string>CEP</string>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_ZipCode_Type">
+               <property name="text">
+                <string>CheckBox</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <property name="tristate">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QTabWidget" name="tabWidget_Entities">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>310</y>
+              <width>1126</width>
+              <height>180</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>180</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>180</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="tab_Enterprises">
+             <attribute name="title">
+              <string>Tab 1</string>
+             </attribute>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_BR_CNPJ">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>171</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Brasil CNPJ</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>00.000.000/0000-00</string>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_BR_IE">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>40</y>
+                <width>171</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Brasil Inscrição Estadual (IE)</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>000.000.000.000</string>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_BR_IM">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>70</y>
+                <width>171</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Brasil Inscrição Municipal (IM)</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>99999999999</string>
+              </property>
+              <property name="maxLength">
+               <number>11</number>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_BR_RG">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>40</y>
+                <width>171</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Brasil Registro Geral (RG) Pessoa Física</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>00.000.000-a</string>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_BR_CPF">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>10</y>
+                <width>171</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Brasil Cadastro Nacional de Pessoa Física (CPF)</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>000.000.000-00</string>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_URL">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>100</y>
+                <width>711</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>255</number>
+              </property>
+              <property name="placeholderText">
+               <string>URL</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_OtherId">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>70</y>
+                <width>341</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>Id de Documentos Gerais ou Internacionais</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="inputMask">
+               <string>&gt;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+              </property>
+              <property name="maxLength">
+               <number>30</number>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="tab_Customs">
+             <attribute name="title">
+              <string>Page</string>
+             </attribute>
+             <widget class="QWidget" name="layoutWidget_2">
+              <property name="geometry">
+               <rect>
+                <x>9</x>
+                <y>43</y>
+                <width>1111</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QLineEdit" name="lineEdit_DocIdProject">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>120</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Id de Documentos Gerais</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="inputMask">
+                  <string>&gt;xxxxxxxxxxxxxxxxxxxx</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>20</number>
+                 </property>
+                 <property name="placeholderText">
+                  <string/>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_7">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>798</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="layoutWidget_3">
+              <property name="geometry">
+               <rect>
+                <x>9</x>
+                <y>77</y>
+                <width>1056</width>
+                <height>29</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QSpinBox" name="spinBox_ProjectTimeLine">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>120</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Cronograma Total Esperado para Execução do Projeto</string>
+                 </property>
+                 <property name="suffix">
+                  <string>Mês(es)</string>
+                 </property>
+                 <property name="maximum">
+                  <number>999</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>948</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QLineEdit" name="lineEdit_ProjId">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>91</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Código do Projeto&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="inputMask">
+               <string>99999</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="lineEdit_ProjYear">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>10</y>
+                <width>71</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ano do Projeto&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="inputMask">
+               <string>9999</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QWidget" name="layoutWidget">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>10</y>
+                <width>621</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="comboBox_Entities_P" name="comboBox_Customer">
+                 <property name="maximumSize">
+                  <size>
+                   <width>550</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cliente Base, ao qual o projeto está vinculado.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="editable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="modelColumn">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_ProjId">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Código do Cliente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Panel</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="tab_Projects">
+             <attribute name="title">
+              <string>Tab 2</string>
+             </attribute>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomSpecTitle">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>451</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>50</number>
+              </property>
+              <property name="placeholderText">
+               <string>Identificação</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomNameFld_1">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>50</y>
+                <width>221</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>15</number>
+              </property>
+              <property name="placeholderText">
+               <string>Nome do Campo</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomDataFld_1">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>50</y>
+                <width>831</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>255</number>
+              </property>
+              <property name="placeholderText">
+               <string>Conteúdo do Campo</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomNameFld_2">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>80</y>
+                <width>221</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>15</number>
+              </property>
+              <property name="placeholderText">
+               <string>Nome do Campo</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomDataFld_2">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>80</y>
+                <width>831</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>255</number>
+              </property>
+              <property name="placeholderText">
+               <string>Conteúdo do Campo</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="lineEdit_fieldChecking" name="lineEdit_CustomComments">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>110</y>
+                <width>871</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="maxLength">
+               <number>255</number>
+              </property>
+              <property name="placeholderText">
+               <string>Comentários</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>50</y>
+                <width>31</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>01</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>80</y>
+                <width>31</width>
+                <height>26</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>02</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>180</y>
+              <width>341</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="comboBox_Phones_P" name="comboBox_Phone_1">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>15</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="lineEdit_fieldChecking" name="lineEdit_Phone_1">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="inputMask">
+                <string>(00)0000-0000</string>
+               </property>
+               <property name="text">
+                <string>()-</string>
+               </property>
+               <property name="maxLength">
+                <number>13</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>210</y>
+              <width>341</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="comboBox_Phones_P" name="comboBox_Phone_2">
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>15</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="lineEdit_fieldChecking" name="lineEdit_Phone_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="inputMask">
+                <string>(00)0000-0000</string>
+               </property>
+               <property name="text">
+                <string>()-</string>
+               </property>
+               <property name="maxLength">
+                <number>13</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>360</x>
+              <y>180</y>
+              <width>341</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="comboBox_Phones_P" name="comboBox_Phone_3">
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>15</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="lineEdit_fieldChecking" name="lineEdit_Phone_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="inputMask">
+                <string>(00)0000-0000</string>
+               </property>
+               <property name="text">
+                <string>()-</string>
+               </property>
+               <property name="maxLength">
+                <number>13</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>360</x>
+              <y>210</y>
+              <width>341</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="comboBox_Phones_P" name="comboBox_Phone_4">
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>15</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="lineEdit_fieldChecking" name="lineEdit_Phone_4">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="inputMask">
+                <string>(00)0000-0000</string>
+               </property>
+               <property name="text">
+                <string>()-</string>
+               </property>
+               <property name="maxLength">
+                <number>13</number>
+               </property>
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QToolButton" name="toolButton_NicknameSuggestion">
+            <property name="geometry">
+             <rect>
+              <x>500</x>
+              <y>50</y>
+              <width>101</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="toolTip">
+             <string>Gera uma sugestão de apelido</string>
+            </property>
+            <property name="text">
+             <string>Sugestão</string>
+            </property>
+            <property name="popupMode">
+             <enum>QToolButton::DelayedPopup</enum>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextOnly</enum>
+            </property>
+            <property name="autoRaise">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>comboBox_Phones_P</class>
+   <extends>QComboBox</extends>
+   <header location="global">combobox_phones_p.h</header>
+  </customwidget>
+  <customwidget>
+   <class>comboBox_Entities_P</class>
+   <extends>QComboBox</extends>
+   <header location="global">combobox_entities_p.h</header>
+  </customwidget>
+  <customwidget>
+   <class>lineEdit_fieldChecking</class>
+   <extends>QLineEdit</extends>
+   <header location="global">lineedit_fieldchecking.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>lineEdit_Name</tabstop>
+  <tabstop>lineEdit_Alias</tabstop>
+  <tabstop>lineEdit_Address</tabstop>
+  <tabstop>lineEdit_AddrNumber</tabstop>
+  <tabstop>lineEdit_District</tabstop>
+  <tabstop>lineEdit_City</tabstop>
+  <tabstop>comboBox_StatesAbbrev</tabstop>
+  <tabstop>lineEdit_PostalCode</tabstop>
+  <tabstop>checkBox_ZipCode_Type</tabstop>
+  <tabstop>comboBox_Phone_1</tabstop>
+  <tabstop>lineEdit_Phone_1</tabstop>
+  <tabstop>comboBox_Phone_2</tabstop>
+  <tabstop>lineEdit_Phone_2</tabstop>
+  <tabstop>comboBox_Phone_3</tabstop>
+  <tabstop>lineEdit_Phone_3</tabstop>
+  <tabstop>comboBox_Phone_4</tabstop>
+  <tabstop>lineEdit_Phone_4</tabstop>
+  <tabstop>lineEdit_Contact_1</tabstop>
+  <tabstop>lineEdit_Email_1</tabstop>
+  <tabstop>lineEdit_Contact_2</tabstop>
+  <tabstop>lineEdit_Email_2</tabstop>
+  <tabstop>tabWidget_Entities</tabstop>
+  <tabstop>lineEdit_BR_CNPJ</tabstop>
+  <tabstop>lineEdit_BR_CPF</tabstop>
+  <tabstop>lineEdit_BR_IE</tabstop>
+  <tabstop>lineEdit_BR_RG</tabstop>
+  <tabstop>lineEdit_BR_IM</tabstop>
+  <tabstop>lineEdit_OtherId</tabstop>
+  <tabstop>lineEdit_URL</tabstop>
+  <tabstop>comboBox_Customer</tabstop>
+  <tabstop>lineEdit_DocIdProject</tabstop>
+  <tabstop>spinBox_ProjectTimeLine</tabstop>
+  <tabstop>lineEdit_CustomSpecTitle</tabstop>
+  <tabstop>lineEdit_CustomNameFld_1</tabstop>
+  <tabstop>lineEdit_CustomDataFld_1</tabstop>
+  <tabstop>lineEdit_CustomNameFld_2</tabstop>
+  <tabstop>lineEdit_CustomDataFld_2</tabstop>
+  <tabstop>lineEdit_CustomComments</tabstop>
+  <tabstop>textEdit_Comments</tabstop>
+  <tabstop>radioButton_Custom</tabstop>
+  <tabstop>radioButton_Suppliers</tabstop>
+  <tabstop>checkBox_RegActive</tabstop>
+  <tabstop>checkBox_showStates</tabstop>
+  <tabstop>radioButton_Basic</tabstop>
+  <tabstop>radioButton_Projects</tabstop>
+  <tabstop>radioButton_Customer</tabstop>
+  <tabstop>tableView_Entities</tabstop>
+  <tabstop>radioButton_Company</tabstop>
+ </tabstops>
+ <resources>
+  <include location="qdocbase.qrc"/>
+ </resources>
+ <connections/>
+ <slots>
+  <slot>checkBox_showStates_stateChanged()</slot>
+  <slot>update_data(int)</slot>
+  <slot>dynamic_editingFinished()</slot>
+ </slots>
+</ui>

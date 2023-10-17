@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/">
+        <file>generic.png</file>
+        <file>3g2-1071.png</file>
+        <file>asc-4704.png</file>
+        <file>avi-10.png</file>
+        <file>cdr-329.png</file>
+        <file>docmacro-1755.png</file>
+        <file>dotx-1756.png</file>
+        <file>dvi-568.png</file>
+        <file>txt-109.png</file>
+        <file>dwg-256.png</file>
+        <file>dws-5288.png</file>
+        <file>exe-29.png</file>
+        <file>7z-452.png</file>
+        <file>arj-233.png</file>
+        <file>zip-128.png</file>
+        <file>pps-80.png</file>
+        <file>ppt-81.png</file>
+        <file>odb-4855.png</file>
+        <file>ods-1215.png</file>
+        <file>odt-716.png</file>
+        <file>xls-121.png</file>
+        <file>mdf-1372.png</file>
+        <file>mp3-58.png</file>
+        <file>mpa-625.png</file>
+        <file>ogg-413.png</file>
+        <file>pct-73.png</file>
+        <file>ra-89.png</file>
+        <file>wav-113.png</file>
+        <file>wma-115.png</file>
+        <file>asp-8.png</file>
+        <file>aspx-9.png</file>
+        <file>db-20.png</file>
+        <file>dbf-560.png</file>
+        <file>doc.png</file>
+        <file>docx.png</file>
+        <file>xlsx.png</file>
+        <file>jpeg.png</file>
+        <file>pdf.png</file>
+        <file>pdf64.png</file>
+        <file>pdf128.png</file>
+        <file>pagehtml.png</file>
+    </qresource>
+</RCC>

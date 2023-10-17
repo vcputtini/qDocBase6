@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogSettings</class>
+ <widget class="QDialog" name="DialogSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>760</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>760</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Configurações</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="qdocbase.qrc">
+    <normaloff>:/images/png/images/docbase64x64.png</normaloff>:/images/png/images/docbase64x64.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>ATENÇÃO: NÃO ALTERE AS CONFIGURAÇÕES ABAIXO CASO NÃO TENHA CERTEZA DOS RESULTADOS!</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QTabWidget" name="tabWidgetSettings">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tabAutothentication">
+         <attribute name="title">
+          <string>Page</string>
+         </attribute>
+         <widget class="QLineEdit" name="lineEdit_Auth">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>151</width>
+            <height>26</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Informe a senha do administrador</string>
+          </property>
+          <property name="maxLength">
+           <number>20</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Senha</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonOk">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>80</width>
+            <height>26</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Ok</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tabSettings">
+         <attribute name="title">
+          <string>Tab 1</string>
+         </attribute>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>201</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Acesso ao Banco de Dados</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Formato nativo da data</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QRadioButton" name="radioButton_DbDateISO">
+             <property name="toolTip">
+              <string>Formato: yyyy-MM-dd ou yyyy.MM.dd</string>
+             </property>
+             <property name="text">
+              <string>ISO</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="lineEdit_HostName">
+             <property name="toolTip">
+              <string>HostName / IP</string>
+             </property>
+             <property name="maxLength">
+              <number>50</number>
+             </property>
+             <property name="placeholderText">
+              <string>Host name / IP</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="lineEdit_Password">
+             <property name="toolTip">
+              <string>Senha do usuário do Banco de Dados</string>
+             </property>
+             <property name="maxLength">
+              <number>15</number>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+             <property name="placeholderText">
+              <string>Senha</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QRadioButton" name="radioButton_DbDateEUA">
+             <property name="toolTip">
+              <string>Formato: MM/dd/yyyy</string>
+             </property>
+             <property name="text">
+              <string>EUA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QRadioButton" name="radioButton_DbDateEUR">
+             <property name="toolTip">
+              <string>Formato: dd/MM/yyyy</string>
+             </property>
+             <property name="text">
+              <string>EUR</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="lineEdit_User">
+             <property name="toolTip">
+              <string>Usuário do Banco de Dados</string>
+             </property>
+             <property name="maxLength">
+              <number>15</number>
+             </property>
+             <property name="placeholderText">
+              <string>Usuário</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="lineEdit_DBName">
+             <property name="maxLength">
+              <number>100</number>
+             </property>
+             <property name="placeholderText">
+              <string>Database Name</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>310</y>
+            <width>201</width>
+            <height>129</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Comportamento do Programa</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QRadioButton" name="radioButton_Free">
+             <property name="toolTip">
+              <string>Todas as funcionalidades estão liberadas</string>
+             </property>
+             <property name="text">
+              <string>Livre</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="radioButton_ReadOnly">
+             <property name="toolTip">
+              <string>Apenas para consulta dos dados</string>
+             </property>
+             <property name="text">
+              <string>Somente Leitura</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QRadioButton" name="radioButton_Limited">
+             <property name="toolTip">
+              <string>Apenas algumas informações estão visiveis</string>
+             </property>
+             <property name="text">
+              <string>Limitado</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>491</width>
+            <height>181</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Caminhos dos Diretórios Padrão do Programa</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="lineEdit_RooDir">
+             <property name="toolTip">
+              <string>Caminho para carga das imagens</string>
+             </property>
+             <property name="maxLength">
+              <number>254</number>
+             </property>
+             <property name="placeholderText">
+              <string>Carga das imagens</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="lineEdit_ExportDir">
+             <property name="toolTip">
+              <string>Caminho para a exportação das imagens</string>
+             </property>
+             <property name="maxLength">
+              <number>254</number>
+             </property>
+             <property name="placeholderText">
+              <string>Exportação</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="lineEdit_TempDir">
+             <property name="toolTip">
+              <string>Caminho para a pasta temporária do programa</string>
+             </property>
+             <property name="maxLength">
+              <number>254</number>
+             </property>
+             <property name="placeholderText">
+              <string>Temporários</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="lineEdit_DefaultDownload">
+             <property name="toolTip">
+              <string>Caminho para a pasta de downloads</string>
+             </property>
+             <property name="maxLength">
+              <number>254</number>
+             </property>
+             <property name="placeholderText">
+              <string>Download</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="ttabViewer">
+         <attribute name="title">
+          <string>Tab 2</string>
+         </attribute>
+         <widget class="QCheckBox" name="checkBox_RemoveImageFromDir">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>481</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Apagar arquivos do diretório após incluí-lo no banco de dados?</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkBox_DefaultDocId">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>301</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>Caso digite mais docomentos com valores do que sem, marque esta opção. Isto fará com que esta opção fique sempre ativada no Cadastro de Documentos.</string>
+          </property>
+          <property name="text">
+           <string>Documentos identificados como Padrão?</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkBox_SetDirImg">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>311</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Usar Sempre Diretório de Imagens Padrão?</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkBox_KeepNameEntity">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>411</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Manter Nome da Entidade após gravar novo registro?</string>
+          </property>
+         </widget>
+         <widget class="QGroupBox" name="groupBoxCustomFields">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>160</y>
+            <width>421</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="whatsThis">
+           <string>Esta opção permite que você crie até cinco novos campos personalizados,
+ou seja, você poderá criar campos para quardar informações necessárias
+para o seu modelo de cadastro.</string>
+          </property>
+          <property name="title">
+           <string>Campos Personalizados</string>
+          </property>
+          <widget class="QLabel" name="label_6">
+           <property name="geometry">
+            <rect>
+             <x>11</x>
+             <y>30</y>
+             <width>131</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Nome do Campo</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_7">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>30</y>
+             <width>70</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Tamanho</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_8">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>30</y>
+             <width>70</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Situação</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_Fld01Name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>221</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maxLength">
+            <number>15</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_Len_01">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>60</y>
+             <width>71</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>254</number>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_Activated_01">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>60</y>
+             <width>91</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ativado</string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_Len_02">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>90</y>
+             <width>71</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>254</number>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_Fld02Name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>90</y>
+             <width>221</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maxLength">
+            <number>15</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_Len_03">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>120</y>
+             <width>71</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>254</number>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_Fld03Name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>221</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maxLength">
+            <number>15</number>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_Activated_03">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>120</y>
+             <width>91</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ativado</string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_Len_04">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>150</y>
+             <width>71</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>254</number>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_Fld04Name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>150</y>
+             <width>221</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maxLength">
+            <number>15</number>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_Activated_04">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>150</y>
+             <width>91</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ativado</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_Activated_05">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>180</y>
+             <width>91</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ativado</string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_Len_05">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>180</y>
+             <width>71</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>254</number>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_Fld05Name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>180</y>
+             <width>221</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maxLength">
+            <number>15</number>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_Activated_02">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>90</y>
+             <width>91</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ativado</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>653</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="pushButtonSave">
+     <property name="text">
+      <string>Salvar</string>
+     </property>
+     <property name="icon">
+      <iconset theme="document-save">
+       <normaloff>.</normaloff>.</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidgetSettings</tabstop>
+  <tabstop>lineEdit_Auth</tabstop>
+  <tabstop>pushButtonOk</tabstop>
+  <tabstop>lineEdit_HostName</tabstop>
+  <tabstop>lineEdit_DBName</tabstop>
+  <tabstop>lineEdit_User</tabstop>
+  <tabstop>lineEdit_Password</tabstop>
+  <tabstop>lineEdit_RooDir</tabstop>
+  <tabstop>lineEdit_ExportDir</tabstop>
+  <tabstop>lineEdit_TempDir</tabstop>
+  <tabstop>lineEdit_DefaultDownload</tabstop>
+  <tabstop>radioButton_Free</tabstop>
+  <tabstop>radioButton_ReadOnly</tabstop>
+  <tabstop>radioButton_Limited</tabstop>
+  <tabstop>checkBox_DefaultDocId</tabstop>
+  <tabstop>checkBox_KeepNameEntity</tabstop>
+  <tabstop>checkBox_SetDirImg</tabstop>
+  <tabstop>checkBox_RemoveImageFromDir</tabstop>
+  <tabstop>lineEdit_Fld01Name</tabstop>
+  <tabstop>spinBox_Len_01</tabstop>
+  <tabstop>checkBox_Activated_01</tabstop>
+  <tabstop>lineEdit_Fld02Name</tabstop>
+  <tabstop>spinBox_Len_02</tabstop>
+  <tabstop>checkBox_Activated_02</tabstop>
+  <tabstop>lineEdit_Fld03Name</tabstop>
+  <tabstop>spinBox_Len_03</tabstop>
+  <tabstop>checkBox_Activated_03</tabstop>
+  <tabstop>lineEdit_Fld04Name</tabstop>
+  <tabstop>spinBox_Len_04</tabstop>
+  <tabstop>checkBox_Activated_04</tabstop>
+  <tabstop>lineEdit_Fld05Name</tabstop>
+  <tabstop>spinBox_Len_05</tabstop>
+  <tabstop>checkBox_Activated_05</tabstop>
+  <tabstop>pushButtonSave</tabstop>
+  <tabstop>radioButton_DbDateEUA</tabstop>
+  <tabstop>radioButton_DbDateEUR</tabstop>
+  <tabstop>radioButton_DbDateISO</tabstop>
+ </tabstops>
+ <resources>
+  <include location="qdocbase.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButtonSave</sender>
+   <signal>clicked()</signal>
+   <receiver>DialogSettings</receiver>
+   <slot>pushButtonSave_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>703</x>
+     <y>576</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>607</x>
+     <y>578</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonOk</sender>
+   <signal>clicked()</signal>
+   <receiver>DialogSettings</receiver>
+   <slot>pushButtonOk_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>pushButtonSave_clicked()</slot>
+  <slot>pushButtonOk_clicked()</slot>
+ </slots>
+</ui>

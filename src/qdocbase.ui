@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>qDocBase</class>
+ <widget class="QMainWindow" name="qDocBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>qDocBase</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="qdocbase.qrc">
+    <normaloff>:/images/png/images/docbase64x64.png</normaloff>:/images/png/images/docbase64x64.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="main_mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="main_menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Main_Actions">
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Ações</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Tools">
+    <property name="title">
+     <string>Ferramen&amp;tas</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Main_Help">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+   </widget>
+   <addaction name="menu_Main_Actions"/>
+   <addaction name="menu_Tools"/>
+   <addaction name="menu_Main_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="main_statusbar"/>
+  <widget class="QDockWidget" name="modules_dockWidget">
+   <property name="maximumSize">
+    <size>
+     <width>256</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="modules_listview_p" name="modules_listView"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="action_Entidades">
+   <property name="text">
+    <string>&amp;Entidades</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>modules_listview_p</class>
+   <extends>QListView</extends>
+   <header location="global">modules_listview_p.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="qdocbase.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>modules_listView</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>qDocBase</receiver>
+   <slot>modules_listView_doubleClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>modules_listView_doubleClicked(QModelIndex)</slot>
+ </slots>
+</ui>
