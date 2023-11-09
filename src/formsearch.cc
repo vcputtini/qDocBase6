@@ -454,7 +454,7 @@ FormSearch::execSearch()
     }
     sb_->setUnLock(ui->lineEdit_UserName, ui->lineEdit_UserPasswd);
   } else {
-    sb_->setUnLock(ui->lineEdit_UserName);
+    sb_->setUnLock(ui->lineEdit_UserName, ui->lineEdit_UserPasswd);
   }
 
   sb_->setCustomField(ui->groupBox_CustomFields,
@@ -746,9 +746,11 @@ SqlBuilder::setUnLock(QLineEdit* user_, QLineEdit* passwd_)
   if (!user_->text().isEmpty() && !passwd_->text().isEmpty()) {
     stmnt_ += QString(" AND A.ST_OPERATOR='%0' AND A.ST_TOPSEC=1")
                 .arg(std::move(user_->text()));
-  } else {
+  } else if (!user_->text().isEmpty() && passwd_->text().isEmpty()) {
     stmnt_ += QString(" AND A.ST_OPERATOR='%0' AND A.ST_TOPSEC=0")
                 .arg(std::move(user_->text()));
+  } else {
+    stmnt_ += QString(" AND A.ST_TOPSEC=0");
   }
   return *this;
 }
