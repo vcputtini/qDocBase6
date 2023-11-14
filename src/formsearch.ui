@@ -28,8 +28,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>542</width>
-        <height>133</height>
+        <width>982</width>
+        <height>518</height>
        </rect>
       </property>
       <attribute name="label">
@@ -68,22 +68,15 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>982</width>
-        <height>518</height>
+        <width>1029</width>
+        <height>504</height>
        </rect>
       </property>
       <attribute name="label">
        <string>Filtros</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_5">
-       <item row="0" column="1">
-        <widget class="QGraphicsView" name="graphicsView_Docs">
-         <property name="toolTip">
-          <string>Duplo-clique para ver o arquivo ou imagem.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
+       <item row="1" column="0">
         <widget class="QSplitter" name="splitter_Filters">
          <property name="minimumSize">
           <size>
@@ -420,6 +413,20 @@
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
          </widget>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QGraphicsView" name="graphicsView_Docs">
+         <property name="toolTip">
+          <string>Duplo-clique para ver o arquivo ou imagem.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Duplo-click sobre a imagem para abrir.</string>
+         </property>
         </widget>
        </item>
       </layout>
