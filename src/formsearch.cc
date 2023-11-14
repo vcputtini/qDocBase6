@@ -282,11 +282,15 @@ FormSearch::clearFields_clicked()
   ui->groupBox_CustomFields->setChecked(false);
   ui->checkBox_CustomExactlySame->setChecked(false);
 
-  qryModel_->clear();
-  ui->tableView_Results->setModel(qryModel_);
+  if (qryModel_) {
+    qryModel_->clear();
+    ui->tableView_Results->setModel(qryModel_);
+  }
 
-  scene_->clear();
-  ui->graphicsView_Docs->setScene(scene_);
+  if (ui->graphicsView_Docs->scene() != nullptr) {
+    scene_->clear();
+    ui->graphicsView_Docs->setScene(scene_);
+  }
 }
 
 /*!
