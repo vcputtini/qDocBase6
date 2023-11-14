@@ -1476,71 +1476,76 @@ Register</translation>
         <translation>Filters</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="82"/>
+        <location filename="formsearch.ui" line="421"/>
         <source>Duplo-clique para ver o arquivo ou imagem.</source>
         <translation>Double-click to view the file or image.</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="138"/>
+        <location filename="formsearch.ui" line="131"/>
         <source>Ordenação</source>
         <translation>Sort by</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="181"/>
+        <location filename="formsearch.ui" line="174"/>
         <source>Período</source>
         <translation>Range</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="219"/>
-        <location filename="formsearch.cc" line="294"/>
+        <location filename="formsearch.ui" line="212"/>
+        <location filename="formsearch.cc" line="325"/>
         <source>Data do Registro</source>
         <translation>Record Date</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="236"/>
+        <location filename="formsearch.ui" line="229"/>
         <source>Departamentos</source>
         <translation>Departments</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="260"/>
+        <location filename="formsearch.ui" line="253"/>
         <source>Desbloqueio</source>
         <translation>Unlock</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="281"/>
+        <location filename="formsearch.ui" line="274"/>
         <source>Usuário</source>
         <translation>User</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="303"/>
+        <location filename="formsearch.ui" line="296"/>
         <source>Senha</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="320"/>
+        <location filename="formsearch.ui" line="313"/>
         <source>Histórico</source>
         <translation>Historic</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="332"/>
-        <location filename="formsearch.ui" line="380"/>
+        <location filename="formsearch.ui" line="325"/>
+        <location filename="formsearch.ui" line="373"/>
         <source>Palavra ou partes do texto para pesquisar</source>
         <translation>Word or parts of text to search</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="342"/>
-        <location filename="formsearch.ui" line="390"/>
+        <location filename="formsearch.ui" line="335"/>
+        <location filename="formsearch.ui" line="383"/>
         <source>Exatamente igual</source>
         <translation>Exactly same</translation>
     </message>
     <message>
-        <location filename="formsearch.ui" line="358"/>
+        <location filename="formsearch.ui" line="351"/>
         <source>Campos Personalizados</source>
         <translation>Custmized Fields</translation>
     </message>
     <message>
+        <location filename="formsearch.ui" line="428"/>
+        <source>Duplo-click sobre a imagem para abrir.</source>
+        <translation type="unfinished">Double-click on the image to open.</translation>
+    </message>
+    <message>
         <location filename="formsearch.h" line="106"/>
-        <location filename="formsearch.cc" line="419"/>
+        <location filename="formsearch.cc" line="466"/>
         <source>#ID</source>
         <translation>#ID</translation>
     </message>
@@ -1551,7 +1556,7 @@ Register</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="108"/>
-        <location filename="formsearch.cc" line="421"/>
+        <location filename="formsearch.cc" line="468"/>
         <source>Operador</source>
         <translation>Operator</translation>
     </message>
@@ -1562,13 +1567,13 @@ Register</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="110"/>
-        <location filename="formsearch.cc" line="295"/>
+        <location filename="formsearch.cc" line="326"/>
         <source>Data do Documento</source>
         <translation>Document Date</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="111"/>
-        <location filename="formsearch.cc" line="422"/>
+        <location filename="formsearch.cc" line="469"/>
         <source>Departamento</source>
         <translation>Department</translation>
     </message>
@@ -1578,61 +1583,61 @@ Register</translation>
         <translation>%0 - Base:[%1]</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="420"/>
+        <location filename="formsearch.cc" line="467"/>
         <source>Data
 Cadastro</source>
         <translation>Date
 Register</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="423"/>
+        <location filename="formsearch.cc" line="470"/>
         <source>Vínculo</source>
         <translation>Link</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="424"/>
+        <location filename="formsearch.cc" line="471"/>
         <source>Data
 Documento</source>
         <translation>Document
 Date</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="425"/>
+        <location filename="formsearch.cc" line="472"/>
         <source>Número</source>
         <translation>Number</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="426"/>
+        <location filename="formsearch.cc" line="473"/>
         <source>Valor R$</source>
         <translation>Value R$</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="427"/>
+        <location filename="formsearch.cc" line="474"/>
         <source>Arquivo</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="515"/>
+        <location filename="formsearch.cc" line="562"/>
         <source>Não Selecionado</source>
         <translation>Not Selected</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="562"/>
+        <location filename="formsearch.cc" line="609"/>
         <source>Impressão de Relatórios</source>
         <translation>Report Printing</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="564"/>
+        <location filename="formsearch.cc" line="611"/>
         <source>Cancelar</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="566"/>
+        <location filename="formsearch.cc" line="613"/>
         <source>Continuar</source>
         <translation>Continue</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="598"/>
+        <location filename="formsearch.cc" line="645"/>
         <source>Listagem de Documentos: %0</source>
         <translation>Document Listing: %0</translation>
     </message>
@@ -2251,70 +2256,70 @@ Digitando o DV calculado o campo irá ser validado, porém isso não garante sua
         <translation type="vanished">#ID: %0 DATe: %1 CLASS : %2</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1231"/>
+        <location filename="formentities.cc" line="1232"/>
         <source>#ID: %0 DATA: %1 CATEGORIA: %2</source>
         <translation>#ID: %0 DATE: %1 CATEGORY: %2</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1240"/>
+        <location filename="formentities.cc" line="1241"/>
         <source>NOME: %0 APELIDO: %1</source>
         <translation>NAME: %0 NICKNAME: %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1246"/>
+        <location filename="formentities.cc" line="1247"/>
         <source>ENDEREÇO: %0 BAIRRO: %1</source>
         <translation>ADDRESS   : %0 DISTRICT: %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1255"/>
+        <location filename="formentities.cc" line="1256"/>
         <source>CIDADE: %0 UF: %1 CEP: %2</source>
         <translation>CITY     : %0 ST: %1 ZIP: %2</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1265"/>
-        <location filename="formentities.cc" line="1283"/>
+        <location filename="formentities.cc" line="1266"/>
+        <location filename="formentities.cc" line="1284"/>
         <source>TELS: [%0-%1] [%2-%3]</source>
         <translation>PHONE: [%0-%1] [%2-%3]</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1301"/>
-        <location filename="formentities.cc" line="1308"/>
+        <location filename="formentities.cc" line="1303"/>
+        <location filename="formentities.cc" line="1311"/>
         <source>CONTATOS: %0 EMAIL: %1</source>
         <translation>CONTACTS: %0 EMAIL: %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1315"/>
+        <location filename="formentities.cc" line="1318"/>
         <source>CPF/RG: %0 / %1 CPNJ/IE/IM: %2 / %3 / %4</source>
         <translation>CPF/RG: %0 / %1 CPNJ/IE/IM: %2 / %3 / %4</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1337"/>
+        <location filename="formentities.cc" line="1341"/>
         <source>URL:</source>
         <translation>URL:</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1340"/>
+        <location filename="formentities.cc" line="1343"/>
         <source>CÓDIGO: %0 CLIENTE: %1</source>
         <translation>CODE    : %0 CLIENTE : %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1349"/>
+        <location filename="formentities.cc" line="1352"/>
         <source>CEI: %0 CRONOGRAMA: %1</source>
         <translation>CEI: %0 SCHEDULE        : %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1359"/>
+        <location filename="formentities.cc" line="1362"/>
         <source>ESPECIFICAÇÃO: %0</source>
         <translation>SPECIFICATION: %0</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1365"/>
-        <location filename="formentities.cc" line="1372"/>
+        <location filename="formentities.cc" line="1369"/>
+        <location filename="formentities.cc" line="1377"/>
         <source>%0: %1</source>
         <translation>%0: %1</translation>
     </message>
     <message>
-        <location filename="formentities.cc" line="1379"/>
+        <location filename="formentities.cc" line="1384"/>
         <source>%0:</source>
         <translation>%0:</translation>
     </message>
@@ -2502,7 +2507,7 @@ Digitando o DV calculado o campo irá ser validado, porém isso não garante sua
         <translation>Unable to open printer for writing.&lt;br&gt;The device may not be installed.</translation>
     </message>
     <message>
-        <location filename="printmultiplesimages.cc" line="122"/>
+        <location filename="printmultiplesimages.cc" line="119"/>
         <source>Problemas em alocar nova pagina no disco. Disco pode estar cheio.</source>
         <translation>Problems in allocating a new page on disk.</translation>
     </message>
@@ -2777,13 +2782,13 @@ Number.</translation>
     </message>
     <message>
         <location filename="qdocbase.cc" line="12"/>
-        <location filename="qdocbase.cc" line="355"/>
+        <location filename="qdocbase.cc" line="354"/>
         <source>Data do Cadastro</source>
         <translation>Register Date</translation>
     </message>
     <message>
         <location filename="qdocbase.cc" line="12"/>
-        <location filename="qdocbase.cc" line="356"/>
+        <location filename="qdocbase.cc" line="355"/>
         <source>Data do Documento</source>
         <translation>Document Date</translation>
     </message>
@@ -2944,7 +2949,7 @@ Number.</translation>
     </message>
     <message>
         <location filename="qdocbase.cc" line="244"/>
-        <location filename="qdocbase.cc" line="396"/>
+        <location filename="qdocbase.cc" line="395"/>
         <source>Limpa os campos
 na janela [F12]</source>
         <translation>Clear the fields
@@ -2959,84 +2964,84 @@ from the database</translation>
     </message>
     <message>
         <location filename="qdocbase.cc" line="259"/>
-        <location filename="qdocbase.cc" line="401"/>
+        <location filename="qdocbase.cc" line="400"/>
         <source>Exportação ...</source>
         <translation>Export ...</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="270"/>
+        <location filename="qdocbase.cc" line="269"/>
         <source>Importação em Lotes ...</source>
         <translation>Batch Import ...</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="309"/>
-        <location filename="qdocbase.cc" line="372"/>
-        <location filename="qdocbase.cc" line="406"/>
+        <location filename="qdocbase.cc" line="308"/>
+        <location filename="qdocbase.cc" line="371"/>
+        <location filename="qdocbase.cc" line="405"/>
         <source>Impressão ...</source>
         <translation>Print ...</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="322"/>
+        <location filename="qdocbase.cc" line="321"/>
         <source>Informe a data inicial</source>
         <translation>Enter the start date</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="324"/>
+        <location filename="qdocbase.cc" line="323"/>
         <source>Data inicial para seleção dos documentos.</source>
         <translation>Starting date for selecting documents.</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="328"/>
+        <location filename="qdocbase.cc" line="327"/>
         <source>Informe a data final</source>
         <translation>Enter the end date</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="330"/>
+        <location filename="qdocbase.cc" line="329"/>
         <source>Data final para seleção dos documentos.</source>
         <translation>Final date for selecting documents.</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="345"/>
+        <location filename="qdocbase.cc" line="344"/>
         <source>Informa se deve selecionar os documentos pela data de cadastro ou do documento</source>
         <translation>Informs whether to select documents by registration date or document date</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="390"/>
+        <location filename="qdocbase.cc" line="389"/>
         <source>Executa a pesquisa [F10]</source>
         <translation>Run the search [F10]</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="412"/>
+        <location filename="qdocbase.cc" line="411"/>
         <source>Ampliar</source>
         <translation>Zoom in</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="418"/>
+        <location filename="qdocbase.cc" line="417"/>
         <source>Reduzir</source>
         <translation>Zoom out</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="671"/>
+        <location filename="qdocbase.cc" line="670"/>
         <source>Entidades</source>
         <translation>Entities</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="716"/>
+        <location filename="qdocbase.cc" line="715"/>
         <source>Documentos</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="772"/>
+        <location filename="qdocbase.cc" line="771"/>
         <source>Pesquisa</source>
         <translation>Search</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="772"/>
+        <location filename="qdocbase.cc" line="771"/>
         <source>Search</source>
         <translation>Search</translation>
     </message>
     <message>
-        <location filename="qdocbase.cc" line="837"/>
+        <location filename="qdocbase.cc" line="841"/>
         <source>Para a segurança das suas informações 
 não é permitido encerrar o programa 
 sem que todas as janelas estejam fechadas.</source>
