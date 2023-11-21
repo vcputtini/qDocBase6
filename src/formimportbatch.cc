@@ -94,11 +94,19 @@ FormImportBatch::createToolBar()
   toolButtonExec = new QToolButton;
   toolButtonExec->setIcon(QIcon::fromTheme("system-run"));
   toolButtonExec->setToolTip(tr("Executa Importação"));
+  toolButtonLog = new QToolButton;
+  toolButtonLog->setIcon(QIcon::fromTheme("text-x-generic"));
+  toolButtonLog->setToolTip(tr("Log da Importação"));
 
   toolBarImport->addWidget(toolButtonExec);
+  toolBarImport->addWidget(toolButtonLog);
 
   connect(toolButtonExec, &QToolButton::clicked, this, [this](bool click_) {
     execImport();
+  });
+
+  connect(toolButtonLog, &QToolButton::clicked, this, [this](bool click_) {
+    viewLog();
   });
 }
 
@@ -121,14 +129,27 @@ FormImportBatch::setupTable()
 void
 FormImportBatch::execImport()
 {
+  strListLog_.clear();
+  bool notSaved_ = false;
+
   QMap<int, std::array<QString, 5>> table_m_{};
   std::array<QString, 5> item_arr_{};
   for (int i_ = 0; i_ < ui->tableWidget_Sheet->rowCount(); ++i_) {
     for (int j_ = 0; j_ < ui->tableWidget_Sheet->columnCount(); ++j_) {
       QTableWidgetItem* item_ = ui->tableWidget_Sheet->item(i_, j_);
+      if (!item_) {
+        notSaved_ = true;
+        break;
+      }
       item_arr_[j_] = item_->text();
     }
+    if (notSaved_) {
+      strListLog_ << QString(tr("Arquivo: [%0] %1"))
+                       .arg(item_arr_[0])
+                       .arg(tr("Não gravado. Campos incompletos."));
+    }
     table_m_.insert(i_, item_arr_);
+    notSaved_ = false;
   }
 
   ui->progressBar_ImportBatch->setMaximum(table_m_.count() - 1);
@@ -142,6 +163,13 @@ FormImportBatch::execImport()
   connect(
     &importBatch_, SIGNAL(progressBar(int)), this, SLOT(progressBar(int)));
   importBatch_.exec();
+}
+
+void
+FormImportBatch::viewLog()
+{
+  FormLogImportBatch* log_ = new FormLogImportBatch(strListLog_);
+  log_->show();
 }
 
 /*!

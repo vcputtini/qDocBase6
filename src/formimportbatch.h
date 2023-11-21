@@ -42,6 +42,7 @@
 #include <QMessageBox>
 #include <QModelIndexList>
 #include <QProgressDialog>
+#include <QStringList>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QTableWidgetSelectionRange>
@@ -51,6 +52,7 @@
 
 #include <array>
 
+#include "formlogimportbatch.h"
 #include "messages.h"
 
 namespace Ui {
@@ -80,9 +82,12 @@ private:
 private:
   MessagesNS::Messages* Messages_;
 
+  QStringList strListLog_;
+
   QMainWindow* mainWindowToolBar;
   QToolBar* toolBarImport;
   QToolButton* toolButtonExec;
+  QToolButton* toolButtonLog;
 
   quint64 baseID_;
   quint64 storageID_;
@@ -93,6 +98,7 @@ private:
   void setupTable();
 
   void execImport();
+  void viewLog();
 
 public slots:
   void sqlErrorImportBatch(const QString& errText_);
