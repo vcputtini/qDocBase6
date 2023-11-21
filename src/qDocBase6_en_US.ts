@@ -1451,6 +1451,51 @@ Register</translation>
         <source>Executa Importação</source>
         <translation>Run Import</translation>
     </message>
+    <message>
+        <location filename="formimportbatch.cc" line="99"/>
+        <source>Log da Importação</source>
+        <translation>Import Log</translation>
+    </message>
+    <message>
+        <location filename="formimportbatch.cc" line="147"/>
+        <source>Arquivo: [%0] %1</source>
+        <translation>File: [%0] %1</translation>
+    </message>
+    <message>
+        <location filename="formimportbatch.cc" line="149"/>
+        <source>Não gravado. Campos incompletos.</source>
+        <translation>Record was not saved. Incomplete fields.</translation>
+    </message>
+</context>
+<context>
+    <name>FormLogImportBatch</name>
+    <message>
+        <location filename="formlogimportbatch.ui" line="29"/>
+        <source>Import Batch Log</source>
+        <translation>Import Batch Log</translation>
+    </message>
+    <message>
+        <location filename="formlogimportbatch.ui" line="42"/>
+        <source>Local:</source>
+        <translation>Path:</translation>
+    </message>
+    <message>
+        <location filename="formlogimportbatch.ui" line="62"/>
+        <source>Salvar como ...</source>
+        <translation>Save as ...</translation>
+    </message>
+    <message>
+        <location filename="formlogimportbatch.cc" line="50"/>
+        <source>Local: %0</source>
+        <translation>Path: %0</translation>
+    </message>
+    <message>
+        <location filename="formlogimportbatch.cc" line="81"/>
+        <source>Erro: [%0 - %1]
+Tentando criar o arquivo: %2</source>
+        <translation>Error: [%0 - %1]
+Tying to create the file: %2</translation>
+    </message>
 </context>
 <context>
     <name>FormSearch</name>
@@ -1492,7 +1537,7 @@ Register</translation>
     </message>
     <message>
         <location filename="formsearch.ui" line="212"/>
-        <location filename="formsearch.cc" line="325"/>
+        <location filename="formsearch.cc" line="329"/>
         <source>Data do Registro</source>
         <translation>Record Date</translation>
     </message>
@@ -1541,11 +1586,11 @@ Register</translation>
     <message>
         <location filename="formsearch.ui" line="428"/>
         <source>Duplo-click sobre a imagem para abrir.</source>
-        <translation type="unfinished">Double-click on the image to open.</translation>
+        <translation>Double-click on the image to open.</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="106"/>
-        <location filename="formsearch.cc" line="466"/>
+        <location filename="formsearch.cc" line="470"/>
         <source>#ID</source>
         <translation>#ID</translation>
     </message>
@@ -1556,7 +1601,7 @@ Register</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="108"/>
-        <location filename="formsearch.cc" line="468"/>
+        <location filename="formsearch.cc" line="472"/>
         <source>Operador</source>
         <translation>Operator</translation>
     </message>
@@ -1567,13 +1612,13 @@ Register</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="110"/>
-        <location filename="formsearch.cc" line="326"/>
+        <location filename="formsearch.cc" line="330"/>
         <source>Data do Documento</source>
         <translation>Document Date</translation>
     </message>
     <message>
         <location filename="formsearch.h" line="111"/>
-        <location filename="formsearch.cc" line="469"/>
+        <location filename="formsearch.cc" line="473"/>
         <source>Departamento</source>
         <translation>Department</translation>
     </message>
@@ -1583,61 +1628,61 @@ Register</translation>
         <translation>%0 - Base:[%1]</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="467"/>
+        <location filename="formsearch.cc" line="471"/>
         <source>Data
 Cadastro</source>
         <translation>Date
 Register</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="470"/>
+        <location filename="formsearch.cc" line="474"/>
         <source>Vínculo</source>
         <translation>Link</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="471"/>
+        <location filename="formsearch.cc" line="475"/>
         <source>Data
 Documento</source>
         <translation>Document
 Date</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="472"/>
+        <location filename="formsearch.cc" line="476"/>
         <source>Número</source>
         <translation>Number</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="473"/>
+        <location filename="formsearch.cc" line="477"/>
         <source>Valor R$</source>
         <translation>Value R$</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="474"/>
+        <location filename="formsearch.cc" line="478"/>
         <source>Arquivo</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="562"/>
+        <location filename="formsearch.cc" line="566"/>
         <source>Não Selecionado</source>
         <translation>Not Selected</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="609"/>
+        <location filename="formsearch.cc" line="613"/>
         <source>Impressão de Relatórios</source>
         <translation>Report Printing</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="611"/>
+        <location filename="formsearch.cc" line="615"/>
         <source>Cancelar</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="613"/>
+        <location filename="formsearch.cc" line="617"/>
         <source>Continuar</source>
         <translation>Continue</translation>
     </message>
     <message>
-        <location filename="formsearch.cc" line="645"/>
+        <location filename="formsearch.cc" line="649"/>
         <source>Listagem de Documentos: %0</source>
         <translation>Document Listing: %0</translation>
     </message>
