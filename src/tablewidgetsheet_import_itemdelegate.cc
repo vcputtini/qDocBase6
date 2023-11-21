@@ -61,37 +61,33 @@ ImportBatchitemDelegate::createEditor(QWidget* parent,
                                       const QStyleOptionViewItem& view,
                                       const QModelIndex& index) const
 {
-  QWidget* e;
-
-  //  QString oldData = index.model()->data(index, Qt::EditRole).toString();
-  //  Q_UNUSED(oldData);
+  QWidget* e_;
 
   if (index.column() == static_cast<int>(Columns::Number)) {
     QLineEdit* editor_ = new QLineEdit(parent);
     editor_->setValidator(new QIntValidator(0, 32767));
     editor_->setMaxLength(6);
-    e = editor_;
+    e_ = editor_;
   } else if (index.column() == static_cast<int>(Columns::IdDoc)) {
     QLineEdit* editor_ = new QLineEdit(parent);
     editor_->setMaxLength(30);
-    e = editor_;
+    e_ = editor_;
   } else if (index.column() == static_cast<int>(Columns::Date)) {
     QDateEdit* editor_ = new QDateEdit(parent);
-    // editor_->setDisplayFormat("dd/MM/yyyy");
     editor_->setCalendarPopup(true);
     editor_->setDate(QDate::currentDate());
-    e = editor_;
+    e_ = editor_;
   } else if (index.column() == static_cast<int>(Columns::Value)) {
     QLineEdit* editor_ = new QLineEdit(parent);
     editor_->setValidator(new QDoubleValidator(0.0, 999999999.99, 2, editor_));
     editor_->setMaxLength(13);
-    e = editor_;
+    e_ = editor_;
   } else {
-    e = new QLineEdit(parent);
+    e_ = new QLineEdit(parent);
   }
 
-  e->installEventFilter(const_cast<ImportBatchitemDelegate*>(this));
-  return (e);
+  e_->installEventFilter(const_cast<ImportBatchitemDelegate*>(this));
+  return (e_);
 }
 
 /*!
@@ -137,32 +133,31 @@ ImportBatchitemDelegate::setModelData(QWidget* editorWidget,
                                       QAbstractItemModel* model,
                                       const QModelIndex& index) const
 {
-  QString oldData = model->data(index, Qt::EditRole).toString();
-  QString newData{};
+  QString oldData_ = model->data(index, Qt::EditRole).toString();
+  QString newData_{};
 
   if (index.column() == static_cast<int>(Columns::Number)) {
     QLineEdit* editor_ = dynamic_cast<QLineEdit*>(editorWidget);
-    newData = editor_->text();
-    if (oldData != newData) {
-      model->setData(index, newData);
+    newData_ = editor_->text();
+    if (oldData_ != newData_) {
+      model->setData(index, newData_);
     }
   } else if (index.column() == static_cast<int>(Columns::IdDoc)) {
     QLineEdit* editor_ = dynamic_cast<QLineEdit*>(editorWidget);
-    newData = editor_->text();
-    if (oldData != newData) {
-      model->setData(index, newData);
+    newData_ = editor_->text();
+    if (oldData_ != newData_) {
+      model->setData(index, newData_);
     }
   } else if (index.column() == static_cast<int>(Columns::Date)) { // date
     QDateEdit* editor_ = dynamic_cast<QDateEdit*>(editorWidget);
-    newData = editor_->text();
-    if (oldData != newData) {
-      model->setData(index, newData);
+    newData_ = editor_->text();
+    if (oldData_ != newData_) {
+      model->setData(index, newData_);
     }
   } else if (index.column() == static_cast<int>(Columns::Value)) {
     QLineEdit* editor_ = dynamic_cast<QLineEdit*>(editorWidget);
-    newData = editor_->text();
-    // newData = newData.replace('.', ',');
-    model->setData(index, (!newData.isEmpty() ? newData : nullptr));
+    newData_ = editor_->text();
+    model->setData(index, (!newData_.isEmpty() ? newData_ : nullptr));
   } else
     model->setData(index, model->data(index, Qt::EditRole).toString());
 }
@@ -195,23 +190,23 @@ ImportBatchitemDelegate::paint(QPainter* painter,
 {
   // align right
   if (index.column() == static_cast<int>(Columns::Number)) {
-    QString text = index.model()->data(index, Qt::DisplayRole).toString();
+    const QString text_ =
+      index.model()->data(index, Qt::DisplayRole).toString();
     QStyleOptionViewItem myOption = option;
     myOption.displayAlignment = Qt::AlignRight | Qt::AlignVCenter;
-    drawDisplay(painter, myOption, myOption.rect, text);
+    drawDisplay(painter, myOption, myOption.rect, text_);
     drawFocus(painter, myOption, myOption.rect);
   } else if (index.column() == static_cast<int>(Columns::Value)) {
-    QString text = index.model()->data(index, Qt::DisplayRole).toString();
+    const QString text_ =
+      index.model()->data(index, Qt::DisplayRole).toString();
     QStyleOptionViewItem myOption = option;
-    myOption.palette.setColor(QPalette::Text, Qt::blue);
     myOption.displayAlignment = Qt::AlignRight | Qt::AlignVCenter;
     // if (int i_ = text.toInt(); text.toFloat() == i_) {
     //   text += ",00";
     // } else {
     // text = QString::number(text.toFloat(), 'f', 2);
     //}
-    drawDisplay(
-      painter, myOption, myOption.rect, text /*text.replace('.', ',')*/);
+    drawDisplay(painter, myOption, myOption.rect, text_);
     drawFocus(painter, myOption, myOption.rect);
   } else {
     QItemDelegate::paint(painter, option, index);
