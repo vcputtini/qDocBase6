@@ -45,6 +45,7 @@ To generate source code documentation, access the src directory and run the doxy
 #### Documents
 ![](src/doc/screenshots/documents-search.png)
 ![](src/doc/screenshots/documents-data.png)
+![](src/doc/screenshots/importbatch.png)
 
 #### Search
 ![](src/doc/screenshots/search-selections.png)
