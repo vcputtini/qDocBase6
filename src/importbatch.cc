@@ -112,6 +112,9 @@ ImportBatch::save()
                         const QString date_,
                         QString value_,
                         const QString iddoc_) {
+    if (number_ == "0" || date_ == "" || value_ == "0.0") {
+      return;
+    }
     QSqlDatabase::database().transaction();
     QSqlQuery qry_doc_;
     qry_doc_.prepare(stmnt_insert_);
@@ -227,9 +230,13 @@ ImportBatch::save()
   if (table_m_.count() > 0) {
     for (int i_ = 0; i_ < table_m_.count(); ++i_) {
       const QString fname_ = std::move(table_m_.value(i_).at(0));
-      const QString number_ = std::move(table_m_.value(i_).at(1));
+      const QString number_ = (table_m_.value(i_).at(1).isEmpty()
+                                 ? "0"
+                                 : std::move(table_m_.value(i_).at(1)));
       const QString date_ = std::move(table_m_.value(i_).at(2));
-      QString value_ = std::move(table_m_.value(i_).at(3));
+      QString value_ = (table_m_.value(i_).at(3).isEmpty()
+                          ? "0.0"
+                          : std::move(table_m_.value(i_).at(3)));
       const QString iddoc_ = std::move(table_m_.value(i_).at(4));
 
       const QFileInfo fInfo_(fname_);
@@ -244,7 +251,7 @@ ImportBatch::save()
   }
 
   for (int i_ = 0; i_ < indexList_.count(); ++i_) {
-    auto column_id_ = std::move(indexList_.data()->sibling(i_, 0));
+    const auto column_id_ = std::move(indexList_.data()->sibling(i_, 0));
 
     const QString fname_ = std::move(column_id_.data().toString());
     const QString number_ = std::move(QString::number(i_ + 100));
