@@ -115,6 +115,9 @@ set(PROJECT_SOURCES
         ${SRC_FOLDER}/formimportbatch.h
         ${SRC_FOLDER}/formimportbatch.cc
         ${SRC_FOLDER}/formimportbatch.ui
+        ${SRC_FOLDER}/formlogimportbatch.h
+        ${SRC_FOLDER}/formlogimportbatch.cc
+        ${SRC_FOLDER}/formlogimportbatch.ui
         ${SRC_FOLDER}/tablewidgetsheet_import_itemdelegate.cc
         ${SRC_FOLDER}/tablewidgetsheet_import_itemdelegate.h
         ${SRC_FOLDER}/tablewidget_sheet_p.cc
@@ -125,7 +128,7 @@ set(PROJECT_SOURCES
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(qDocBase6
         MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+        ${PROJECT_SOURCES}        
     )
     qt_create_translation(QM_FILES ${SRC_FOLDER}/${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()

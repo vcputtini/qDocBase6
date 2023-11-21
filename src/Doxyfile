@@ -938,6 +938,7 @@ formdocuments.cc formdocuments.h \
 formentities.cc formentities.h \
 formsearch.cc formsearch.h \
 formimportbatch.cc formimportbatch.h \
+formlogimportbatch.cc formlogimportbatch.h \
 formtopsecret2.cc formtopsecret2.h \
 globals.cc globals.h \
 lineedit_fieldchecking.cc lineedit_fieldchecking.h \
