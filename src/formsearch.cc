@@ -878,7 +878,7 @@ ItemInterceptDoubleClick::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event)
 
   QString outFile_;
 #ifdef Q_OS_WIN32
-  outFile_ = QString("%0/%1").arg(locTemp).arg(fname_);
+  outFile_ = QString("%0/%1").arg(locTemp_).arg(fname_);
 #else
   outFile_ = QString("/%0/%1").arg(locTemp_).arg(fname_);
 #endif
