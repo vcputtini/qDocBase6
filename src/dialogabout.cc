@@ -152,9 +152,11 @@ DialogAbout::DialogAbout(QWidget* parent)
   archsys = tr("Arch: x86_64");
 #endif
 
+  const QString buildTimeStamp = QString("Built in: %0").arg(__TIMESTAMP__);
+
   QStringList lText;
-  lText << verGCC << archsys << QSysInfo::prettyProductName() << ""
-        << tr("Database: MariaDB(tm)") << ""
+  lText << verGCC << buildTimeStamp << archsys << QSysInfo::prettyProductName()
+        << "" << tr("Database: MariaDB(tm)") << ""
         << ""
         << ""
         << tr("The program is provided AS IS whith NO WARRANTY OF ANY KIND")
