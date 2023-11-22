@@ -55,7 +55,7 @@ FileFilters_P::defaultItems()
 #ifdef Q_OS_LINUX
   QString filter_ = "*";
 #else
-  QString filter_ = "*.*"
+  QString filter_ = "*.*";
 #endif
 
   insertItems(18,
