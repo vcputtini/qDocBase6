@@ -122,6 +122,7 @@ set(PROJECT_SOURCES
         ${SRC_FOLDER}/tablewidgetsheet_import_itemdelegate.h
         ${SRC_FOLDER}/tablewidget_sheet_p.cc
         ${SRC_FOLDER}/tablewidget_sheet_p.h
+        README.md
         ${TS_FILES}
 )
 
