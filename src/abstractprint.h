@@ -49,6 +49,8 @@
 #include <QPrintPreviewWidget>
 #include <QPrinter>
 #include <QProgressDialog>
+
+
 #include <QRectF>
 #include <QSizeF>
 #include <QString>
