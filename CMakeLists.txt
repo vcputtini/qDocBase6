@@ -15,6 +15,11 @@ set(SRC_FOLDER src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/${SRC_FOLDER})
 cmake_print_variables(CMAKE_CURRENT_SOURCE_DIR)
 
+
+# find_package(Qt6 REQUIRED COMPONENTS Pdf)
+# target_link_libraries(mytarget Qt6::Pdf)
+
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Gui Core Widgets LinguistTools
     Sql Network Xml Concurrent PrintSupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui Core Widgets LinguistTools
@@ -143,6 +148,7 @@ target_link_libraries(qDocBase6 PRIVATE
     Qt${QT_VERSION_MAJOR}::Xml
     Qt${QT_VERSION_MAJOR}::Concurrent
     Qt${QT_VERSION_MAJOR}::PrintSupport
+    #Qt${QT_VERSION_MAJOR}::Pdf
 )
 
 set_target_properties(qDocBase6 PROPERTIES
