@@ -378,7 +378,8 @@ FormSearch::tableView_Results_clicked(QModelIndex index_)
       return;
     }
 
-    QByteArray ba_ = Globals::unCompressImage(qry_.value(0).toByteArray());
+    const QByteArray ba_ =
+      Globals::unCompressImage(qry_.value(0).toByteArray());
 
     QApplication::restoreOverrideCursor();
 
@@ -416,7 +417,6 @@ FormSearch::tableView_Results_clicked(QModelIndex index_)
   ui->graphicsView_Docs->setScene(scene_);
 
   QApplication::restoreOverrideCursor();
-  return;
 
   // If there is an icon for the file type it is shown, otherwise it shows a
   // generic icon
