@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (c) 2007-2023                                                 *
+ * Copyright (c) 2007-2024                                                 *
  *      Volnei Cervi Puttini.  All rights reserved.                        *
  *      vcputtini@gmail.com                                                *
  *                                                                         *

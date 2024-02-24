@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (c) 2007-2023                                                 *
+ * Copyright (c) 2007-2024                                                 *
  *      Volnei Cervi Puttini.  All rights reserved.                        *
  *      vcputtini@gmail.com                                                *
  *                                                                         *
@@ -58,13 +58,6 @@ TypeImage::~TypeImage() {}
 const QString
 TypeImage::getRCName(const QString& type_) const
 {
-  /*
-  for (auto key_ : fileTypes_m_.keys()) {
-      if (fileTypes_m_[key_].first == type_) {
-          return fileTypes_m_[key_].second; // file name
-      }
-  }
-  */
   for (auto it_begin_ = fileTypes_m_.constBegin(),
             it_end_ = fileTypes_m_.constEnd();
        it_begin_ != it_end_;

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (c) 2007-2023                                                 *
+ * Copyright (c) 2007-2024                                                 *
  *      Volnei Cervi Puttini.  All rights reserved.                        *
  *      vcputtini@gmail.com
  *                                                                         *
@@ -370,6 +370,7 @@ FormSearch::tableView_Results_clicked(QModelIndex index_)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     QSqlQuery qry_(QString("SELECT IM_IMAGE FROM DOCIMAGES WHERE ST_IDENT=%0")
                      .arg(std::move(row_)));
+
     qry_.next();
     if (qry_.lastError().isValid()) {
       QMessageBox::warning(
@@ -870,7 +871,7 @@ ItemInterceptDoubleClick::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event)
     return;
   }
 
-  QByteArray ba_ = Globals::unCompressImage(qry_.value(0).toByteArray());
+  const QByteArray ba_ = Globals::unCompressImage(qry_.value(0).toByteArray());
 
   MultiFiles* mf_ = new MultiFiles;
   connect(mf_, SIGNAL(error(QString)), this, SLOT(internalError(QString)));
