@@ -42,10 +42,7 @@
 /*!
  * \brief TypeImage::TypeImage
  */
-TypeImage::TypeImage()
-{
-  initMaps();
-}
+TypeImage::TypeImage() {}
 
 /*!
  * \brief TypeImage::~TypeImage
@@ -54,61 +51,31 @@ TypeImage::~TypeImage() {}
 
 /*!
  * \private
- * \brief TypeImage::initMaps
+ * \brief TypeImage::getRCName
+ * \param type_
+ * \return resource file name
  */
-void
-TypeImage::initMaps()
+const QString
+TypeImage::getRCName(const QString& type_) const
 {
-  mapTypes_["txt"] = "txt-109.png";
-  mapTypes_["asc"] = "asc-4704.png";
-  mapTypes_["avi"] = "avi-10.png";
-  mapTypes_["dvi"] = "div-568.png";
-  mapTypes_["cdr"] = "cdr-329.png";
+  /*
+  for (auto key_ : fileTypes_m_.keys()) {
+      if (fileTypes_m_[key_].first == type_) {
+          return fileTypes_m_[key_].second; // file name
+      }
+  }
+  */
+  for (auto it_begin_ = fileTypes_m_.constBegin(),
+            it_end_ = fileTypes_m_.constEnd();
+       it_begin_ != it_end_;
+       ++it_begin_) {
+    auto key_ = it_begin_.key();
+    if (fileTypes_m_[key_].first == type_) {
+      return fileTypes_m_[key_].second; // file name
+    }
+  }
 
-  mapTypes_["doc"] = "doc.png";
-  mapTypes_["docx"] = "docx.png";
-  mapTypes_["dotx"] = "dotx-1756.png";
-  mapTypes_["xls"] = "xls-121.png";
-  mapTypes_["xlsx"] = "xlsx.png";
-
-  mapTypes_["pdf"] = "pdf.png";
-  mapTypes_["dwg"] = "dwg-256.png";
-  mapTypes_["dws"] = "dws-5288.png";
-  mapTypes_["7z"] = "7z-452.png";
-  mapTypes_["zipx"] = "7z-452.png";
-
-  mapTypes_["arj"] = "arj-233.png";
-  mapTypes_["zip"] = "zip-128.png";
-  mapTypes_["exe"] = "exe-29.png";
-  mapTypes_["pps"] = "pps-80.png";
-  mapTypes_["ppt"] = "ppt-81.png";
-
-  mapTypes_["odt"] = "odt-716.png";
-  mapTypes_["odf"] = "odt-716.png";
-  mapTypes_["ods"] = "ods-1215.png";
-  mapTypes_["odb"] = "odb-4855.png";
-  mapTypes_["mp3"] = "mp3-58.png";
-  mapTypes_["mpa"] = "mpa-625.png";
-
-  mapTypes_["jpeg"] = "jpeg.png";
-  mapTypes_["jpg"] = "jpeg.png";
-
-  mapTypes_["mpeg"] = "mpa-625.png";
-  mapTypes_["mpg"] = "mpa-625.png";
-  mapTypes_["ogg"] = "ogg-413.png";
-  mapTypes_["ra"] = "ra-89.png";
-  mapTypes_["wav"] = "wav-113.png";
-  mapTypes_["wma"] = "wma-115.png";
-
-  mapTypes_["pct"] = "pct-73.png";
-  mapTypes_["db"] = "db-20.png";
-  mapTypes_["odf"] = "odf-560.png";
-  mapTypes_["mdf"] = "mdf-1372.png";
-  mapTypes_["asp"] = "asp-8.png";
-  mapTypes_["aspx"] = "aspx-9.png";
-
-  mapTypes_["html"] = "pagehtml.png";
-  mapTypes_["htm"] = "pagehtml.png";
+  return "";
 }
 
 /*!
@@ -122,11 +89,11 @@ TypeImage::initMaps()
 const QString
 TypeImage::resourceName(const QString type_)
 {
-
-  if (mapTypes_.contains(type_)) {
-    return QString(":/images/png/images/%0").arg(mapTypes_.value(type_));
+  const QString rc_ = getRCName(type_);
+  if (!rc_.isEmpty()) {
+    return QString(rc_path_).arg(rc_);
   } else {
-    return ":/images/png/images/generic.png";
+    return QString(rc_path_).arg("generic.png");
   }
 }
 
@@ -142,19 +109,8 @@ QPixmap
 TypeImage::type(const QString fileName_)
 {
   QFileInfo fi(fileName_);
-
-  QString s_ = QString();
-  if (mapTypes_.contains(fi.suffix().toLower())) {
-    s_ = QString(":/images/png/images/%0")
-           .arg(mapTypes_.value(fi.suffix().toLower()));
-  }
-
   QPixmap pix_;
-  if (!s_.isEmpty()) {
-    pix_.load(s_);
-  } else {
-    pix_.load(":/images/png/images/generic.png");
-  }
+  pix_.load(resourceName(fi.suffix().toLower()));
   return pix_;
 }
 
@@ -203,9 +159,6 @@ TypeImage::isImageViewable(const QString fileName_)
 QStringList
 TypeImage::stringListViewable()
 {
-  /**
-
-   */
   const QStringList list_ = { "bmp", "jpg", "jpeg", "png", "pbm",
                               "pgm", "ppm", "xbm",  "xpm" };
   return list_;
