@@ -106,7 +106,8 @@ private:
     SUFF_ASP,
     SUFF_ASPX,
     SUFF_HTML,
-    SUFF_HTM
+    SUFF_HTM,
+    GENERIC
   };
 
   static constexpr std::initializer_list<SuffixFileTypes> FileTypes_List_ = {
@@ -129,7 +130,8 @@ private:
     SuffixFileTypes::SUFF_WMA,  SuffixFileTypes::SUFF_PCT,
     SuffixFileTypes::SUFF_DB,   SuffixFileTypes::SUFF_MDF,
     SuffixFileTypes::SUFF_ASP,  SuffixFileTypes::SUFF_ASPX,
-    SuffixFileTypes::SUFF_HTML, SuffixFileTypes::SUFF_HTM
+    SuffixFileTypes::SUFF_HTML, SuffixFileTypes::SUFF_HTM,
+    SuffixFileTypes::GENERIC
   };
 
   const QMap<SuffixFileTypes, QPair<QString, QString>> fileTypes_m_ = {
@@ -166,7 +168,8 @@ private:
     { SuffixFileTypes::SUFF_ASP, { "asp", "asp-8.png" } },
     { SuffixFileTypes::SUFF_ASPX, { "aspx", "aspx-9.png" } },
     { SuffixFileTypes::SUFF_HTML, { "html", "pagehtml.png" } },
-    { SuffixFileTypes::SUFF_HTM, { "htm", "pagehtml.png" } }
+    { SuffixFileTypes::SUFF_HTM, { "htm", "pagehtml.png" } },
+    { SuffixFileTypes::GENERIC, { "", "generic.png" } }
   };
 
   inline const QString getRCName(const QString& type_) const;

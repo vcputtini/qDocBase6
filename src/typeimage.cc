@@ -68,7 +68,7 @@ TypeImage::getRCName(const QString& type_) const
     }
   }
 
-  return "";
+  return fileTypes_m_[SuffixFileTypes::GENERIC].second;
 }
 
 /*!
@@ -82,12 +82,7 @@ TypeImage::getRCName(const QString& type_) const
 const QString
 TypeImage::resourceName(const QString type_)
 {
-  const QString rc_ = getRCName(type_);
-  if (!rc_.isEmpty()) {
-    return QString(rc_path_).arg(rc_);
-  } else {
-    return QString(rc_path_).arg("generic.png");
-  }
+  return QString(rc_path_).arg(std::move(getRCName(type_)));
 }
 
 /*!
