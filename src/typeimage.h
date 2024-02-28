@@ -155,7 +155,7 @@ private:
     { SuffixFileTypes::SUFF_PPS, { "pps", "pps-80.png" } },
     { SuffixFileTypes::SUFF_PPT, { "ppt", "ppt-81.png" } },
     { SuffixFileTypes::SUFF_ODT, { "odt", "odt-716.png" } },
-    { SuffixFileTypes::SUFF_ODF, { "odt", "odt-716.png" } },
+    { SuffixFileTypes::SUFF_ODF, { "odf", "odt-716.png" } },
     { SuffixFileTypes::SUFF_ODS, { "ods", "ods-1215.png" } },
     { SuffixFileTypes::SUFF_ODB, { "odb", "odb-4855.png" } },
     { SuffixFileTypes::SUFF_MP3, { "mp3", "mp3-58.png" } },

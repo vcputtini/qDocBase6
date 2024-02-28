@@ -62,7 +62,7 @@ TypeImage::getRCName(const QString& type_) const
             it_end_ = fileTypes_m_.constEnd();
        it_begin_ != it_end_;
        ++it_begin_) {
-    auto key_ = it_begin_.key();
+    const auto key_ = it_begin_.key();
     if (fileTypes_m_[key_].first == type_) {
       return fileTypes_m_[key_].second; // file name
     }
@@ -116,9 +116,11 @@ TypeImage::isImageViewable(const QString fileName_)
     return false;
   }
 
-  QFileInfo fi_(fileName_);
-
-  return stringListViewable().contains(fi_.suffix().toLower());
+  if (qsizetype suff_idx_ = fileName_.lastIndexOf("."); suff_idx_ > 0) {
+    const auto suff_str_ = fileName_.mid(suff_idx_ + 1, fileName_.size());
+    return stringListViewable().contains(suff_str_);
+  }
+  return false;
 }
 
 /*!
@@ -131,23 +133,23 @@ TypeImage::isImageViewable(const QString fileName_)
  *
  * Supported native image formats
  *
- * BMP	Windows Bitmap - Read/write<br>
- * GIF	Graphic Interchange Format (optional) -	Read<br>
- * JPG	Joint Photographic Experts Group - Read/write<br>
- * JPEG	Joint Photographic Experts Group - Read/write<br>
- * PNG	Portable Network Graphics - Read/write<br>
- * PBM	Portable Bitmap	- Read<br>
- * PGM	Portable Graymap - Read<br>
- * PPM	Portable Pixmap	- Read/write<br>
- * XBM	X11 Bitmap - Read/write<br>
- * XPM	X11 Pixmap - Read/write<br>
+ * BMP	Windows Bitmap - Read/write
+ * GIF	Graphic Interchange Format (optional) -	Read
+ * JPG	Joint Photographic Experts Group - Read/write
+ * JPEG	Joint Photographic Experts Group - Read/write
+ * PNG	Portable Network Graphics - Read/write
+ * PBM	Portable Bitmap	- Read
+ * PGM	Portable Graymap - Read
+ * PPM	Portable Pixmap	- Read/write
+ * XBM	X11 Bitmap - Read/write
+ * XPM	X11 Pixmap - Read/write
  *
  * \return QStringList
  */
 QStringList
 TypeImage::stringListViewable()
 {
-  const QStringList list_ = { "bmp", "jpg", "jpeg", "png", "pbm",
-                              "pgm", "ppm", "xbm",  "xpm" };
+  const QStringList list_ = { "bmp", "gif", "jpg", "jpeg", "png",
+                              "pbm", "pgm", "ppm", "xbm",  "xpm" };
   return list_;
 }
