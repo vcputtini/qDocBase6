@@ -241,8 +241,8 @@ FormSearch::treeView_BaseEntities_clicked(QModelIndex index_)
    * \note Returns only the value of the column with the customer identification
    * (customer code), no matter which column the user clicks on.
    */
-  auto column_id_ = index_.model()->sibling(index_.row(), 1, index_);
-  Ident_t_.BaseId = column_id_.data().toULongLong();
+  auto column_id_ = std::move(index_.model()->sibling(index_.row(), 1, index_));
+  Ident_t_.BaseId = std::move(column_id_.data().toULongLong());
 
   // Determines which category is in use and returns the corresponding index.
   // auto categories_id_ = static_cast<Globals::Categories>(
@@ -251,7 +251,7 @@ FormSearch::treeView_BaseEntities_clicked(QModelIndex index_)
     std::move(index_.model()->data(index_.parent(), Qt::UserRole).toInt());
 
   column_id_ = index_.model()->sibling(index_.row(), 2, index_);
-  Ident_t_.mainEntity_ = column_id_.data().toString();
+  Ident_t_.mainEntity_ = std::move(column_id_.data().toString());
 
   showTitle(Ident_t_.mainEntity_);
 
@@ -547,8 +547,8 @@ FormSearch::printCurrentDoc_triggered()
       QMessageBox::Close);
     return;
   }
-  auto column_id_ = index_.model()->sibling(index_.row(), 0, index_);
-  auto column_file_ = index_.model()->sibling(index_.row(), 8, index_);
+  const auto column_id_ = index_.model()->sibling(index_.row(), 0, index_);
+  const auto column_file_ = index_.model()->sibling(index_.row(), 8, index_);
 
   TypeImage timage_;
   if (timage_.isImageViewable(column_file_.data().toString())) {
