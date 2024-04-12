@@ -16,15 +16,15 @@ The main registration module is aimed at Brazil, and the fields that identify ty
 We're available to hire for analysis and implementation of possible adaptations for cases not attended at the moment.
 
 ### Dependencies for Compilation:
-- At least C++17<br>
-- Qt Framework 6.6.x
+- At least C++17
+- Qt Framework 6.7.x
 
 ### My Environment
-- Fedora 38<br>
-- clang 16.0.6<br>
-- c++ (GCC) 13.2.1 20231011 (Red Hat 13.2.1-4)<br>
-- cmake version 3.27.x<br>
-- QtCreator 11.0.x (Code Style: clang-format -style=Mozilla)
+- Fedora 39
+- clang 17.0.6
+- gcc (GCC) 13.2.1 20240316 (Red Hat 13.2.1-7)
+- cmake version 3.27.x
+- QtCreator 13.0.x (Code Style: clang-format -style=Mozilla)
 
 ### informations
 - Windows is registered trademark of Microsoft Inc. USA.

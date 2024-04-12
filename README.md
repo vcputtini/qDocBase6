@@ -17,14 +17,14 @@ We're available to hire for analysis and implementation of possible adaptations 
 
 ### Dependencies for Compilation:
 - At least C++17
-- Qt Framework 6.6.x
+- Qt Framework 6.7.x
 
 ### My Environment
-- Fedora 38
-- clang 16.0.6
-- c++ (GCC) 13.2.1 20231011 (Red Hat 13.2.1-4)
+- Fedora 39
+- clang 17.0.6
+- gcc (GCC) 13.2.1 20240316 (Red Hat 13.2.1-7)
 - cmake version 3.27.x
-- QtCreator 12.0.x (Code Style: clang-format -style=Mozilla)
+- QtCreator 13.0.x (Code Style: clang-format -style=Mozilla)
 
 ### Translations
 - Native pt_BR
