@@ -421,7 +421,7 @@ FormDocuments::listView_Files_doubleClicked(QModelIndex index_)
              QUrl::TolerantMode))) {
     QMessageBox::warning(
       this,
-      ProId::Name,
+      ProgId::Name,
       Messages_->set(MessagesNS::Tokens::GEN_WARN_00013).text(),
       QMessageBox::Ok);
   }
