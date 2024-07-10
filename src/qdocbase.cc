@@ -18,27 +18,32 @@ qDocBase::qDocBase(QWidget* parent)
   sqlDb_ = QSqlDatabase::addDatabase("QMARIADB");
 
   QSettings settings_(ProgId::strOrganization(), ProgId::strInternalName());
+  if (sqlDb_.isDriverAvailable("QMARIADB") && sqlDb_.isValid()) {
+    sqlDb_.setHostName(settings_.value("hostname").toString());
+    sqlDb_.setUserName(settings_.value("dbuser").toString());
+    sqlDb_.setPassword(settings_.value("dbpass").toString());
+    sqlDb_.setDatabaseName(settings_.value("dbname").toString());
 
-  sqlDb_.setHostName(settings_.value("hostname").toString());
-  sqlDb_.setUserName(settings_.value("dbuser").toString());
-  sqlDb_.setPassword(settings_.value("dbpass").toString());
-  sqlDb_.setDatabaseName(settings_.value("dbname").toString());
-
-  if (!sqlDb_.open()) {
-    if (sqlDb_.lastError().nativeErrorCode().toInt() == 2003) {
-      QMessageBox::critical(this,
-                            ProgId::Name,
-                            tr("Você deve configurar os parâmetros de conexão "
-                               "com o banco de dados."
-                               " Feito isto reinicie o aplicativo.\n\n") +
-                              sqlDb_.lastError().text(),
-                            QMessageBox::Close);
-    } else {
-      QMessageBox::critical(
-        this, ProgId::Name, sqlDb_.lastError().text(), QMessageBox::Close);
-      QApplication::restoreOverrideCursor();
-      qTerminate();
+    if (!sqlDb_.open()) {
+      if (sqlDb_.lastError().nativeErrorCode().toInt() == 2003) {
+        QMessageBox::critical(
+          this,
+          ProgId::Name,
+          tr("You must configure the connection parameters whit the "
+             "database\nOnce this is done, restart the application."),
+          QMessageBox::Abort);
+        QApplication::restoreOverrideCursor();
+        qTerminate();
+      } else {
+        QMessageBox::critical(
+          this, ProgId::Name, sqlDb_.lastError().text(), QMessageBox::Abort);
+        QApplication::restoreOverrideCursor();
+        qTerminate();
+      }
     }
+  } else {
+    this->setWindowTitle(tr("%0 (Mode: No database connection avaliable)")
+                           .arg(this->windowTitle()));
   }
 
   QApplication::restoreOverrideCursor();
