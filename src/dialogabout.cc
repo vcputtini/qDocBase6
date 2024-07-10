@@ -102,7 +102,7 @@ DialogAbout::DialogAbout(QWidget* parent)
   QGraphicsTextItem* text[10];
   text[0] = new QGraphicsTextItem;
   /*!
-   *  \attention PLEASE, DO NOT REMOVE THIS COPYRIGTH. Just add yours!
+   *  \attention PLEASE, DO NOT REMOVE THIS COPYRIGHT. Just add yours!
    */
   sText = tr("Copyrigh(C)'2007-%0, Volnei Cervi Puttini <vcputtini@gmail.com>")
             .arg(QDate::currentDate().year());
@@ -134,29 +134,39 @@ DialogAbout::DialogAbout(QWidget* parent)
   text[2]->setPlainText(sText);
   scene_->addItem(text[2]);
 
-  QString verGCC;
-#ifdef Q_OS_LINUX
-  verGCC = tr("Compiler: GNU GCC %1.%2.%3")
+  QString verCC_{};
+#if (defined Q_OS_LINUX) && (defined __GNUC__)
+  verCC_ = tr("Compiler: GNU GCC %1.%2.%3")
              .arg(__GNUC__)
              .arg(__GNUC_MINOR__)
              .arg(__GNUC_PATCHLEVEL__);
+#elif (defined Q_OS_WINDOWS)
+#if Q_CC_MSVC
+  verCC_ = QString("Compiler: Microsoft Visual C/C++ Versao: %0 Build: %1")
+             .arg(_MSC_FULL_VER)
+             .arg(_MSC_BUILD);
+#elif (defined __MINGW32)
+  verCC_ = tr("Compiler: MinGW32 %1.%2")
+             .arg(__MINGW32_VERSION_MAJOR)
+             .arg(__MINGW32_VERSION_MINOR);
+#elif (defined __MINGW64)
+  verCC_ = tr("Compiler: MinGW64 %1.%2")
+             .arg(__MINGW64_VERSION_MAJOR)
+             .arg(__MINGW64_VERSION_MINOR);
+#endif
 #else
-  verGCC = tr("Compiler: MINGW GCC %1.%2.%3")
-             .arg(__GNUC__)
-             .arg(__GNUC_MINOR__)
-             .arg(__GNUC_PATCHLEVEL__);
+  verCC_ = tr("Compiler: Undetermined");
 #endif
 
-  QString archsys = tr("Arch: x86_32;");
-#ifdef Q_PROCESSOR_X86_64
-  archsys = tr("Arch: x86_64");
-#endif
-
+  QString buildArch_ =
+    tr("Build Arch: %0").arg(QSysInfo::buildCpuArchitecture());
+  QString currArch_ =
+    tr("Current Arch: %0").arg(QSysInfo::currentCpuArchitecture());
   const QString buildTimeStamp = QString("Built in: %0").arg(__TIMESTAMP__);
 
   QStringList lText;
-  lText << verGCC << buildTimeStamp << archsys << QSysInfo::prettyProductName()
-        << "" << tr("Database: MariaDB(tm)") << ""
+  lText << verCC_ << buildTimeStamp << buildArch_ << currArch_
+        << QSysInfo::prettyProductName() << "" << tr("Database: MariaDB(tm)")
         << ""
         << ""
         << tr("The program is provided AS IS whith NO WARRANTY OF ANY KIND")
