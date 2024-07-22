@@ -20,10 +20,10 @@ We're available to hire for analysis and implementation of possible adaptations 
 - Qt Framework 6.7.x
 
 ### My Environment
-- Fedora 39
-- clang 17.0.6
-- gcc (GCC) 13.2.1 20240316 (Red Hat 13.2.1-7)
-- cmake version 3.27.x
+- Fedora 40
+- clang 18.0.0
+- [g]cc (GCC) 14.1.1 20240701 (Red Hat 14.1.1-7)
+- cmake version 3.28.x
 - QtCreator 13.0.x (Code Style: clang-format -style=Mozilla)
 
 ### Translations
