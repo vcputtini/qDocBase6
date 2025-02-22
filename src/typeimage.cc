@@ -39,117 +39,60 @@
 
 #include "typeimage.h"
 
-/*!
- * \brief TypeImage::TypeImage
- */
-TypeImage::TypeImage() {}
+const std::unordered_map<QString, QString> TypeImage::FILE_TYPE_ICONS = {
+  { "txt", "txt-109.png" },   { "arc", "asc-4704.png" },
+  { "avi", "avi-10.png" },    { "dvi", "dvi-568.png" },
+  { "cdr", "cdr-329.png" },   { "doc", "doc.png" },
+  { "docx", "docx.png" },     { "xls", "xls-121.png" },
+  { "xlsx", "xlsx.png" },     { "pdf", "pdf.png" },
+  { "dwg", "dwg-256.png" },   { "dws", "dws-5288.png" },
+  { "7z", "7z-452.png" },     { "zipx", "7z-452.png" },
+  { "zip", "zip-128.png" },   { "arj", "arj-233.png" },
+  { "exe", "exe-29.png" },    { "pps", "pps-80.png" },
+  { "ppt", "ppt-81.png" },    { "odt", "odt-716.png" },
+  { "odf", "odt-716.png" },   { "ods", "ods-1215.png" },
+  { "odb", "odb-4855.png" },  { "mp3", "mp3-58.png" },
+  { "mpa", "mpa-625.png" },   { "jpeg", "jpeg.png" },
+  { "jpg", "jpeg.png" },      { "pct", "pct-73.png" },
+  { "db", "db-20.png" },      { "mdf", "mdf-1372.png" },
+  { "asp", "asp-8.png" },     { "aspx", "aspx-9.png" },
+  { "html", "pagehtml.png" }, { "htm", "pagehtml.png" },
+  { "", "generic.png" }
+};
 
-/*!
- * \brief TypeImage::~TypeImage
- */
-TypeImage::~TypeImage() {}
-
-/*!
- * \private
- * \brief TypeImage::getRCName
- * \param type_
- * \return resource file name
- */
-const QString
-TypeImage::getRCName(const QString& type_) const
+QString
+TypeImage::getRCName(const QString& type_)
 {
-  for (auto it_begin_ = fileTypes_m_.constBegin(),
-            it_end_ = fileTypes_m_.constEnd();
-       it_begin_ != it_end_;
-       ++it_begin_) {
-    const auto key_ = it_begin_.key();
-    if (fileTypes_m_[key_].first == type_) {
-      return fileTypes_m_[key_].second; // file name
-    }
-  }
-
-  return fileTypes_m_[SuffixFileTypes::GENERIC].second;
+  return QString(RC_PATH).arg(type_);
 }
 
-/*!
- * \public
- * \brief TypeImage::resourceName
- *        Returns the resource name based on the given file name extension
- *
- * \param type - Inform only the extension ex: doc, xls ...
- * \return
- */
-const QString
-TypeImage::resourceName(const QString type_)
+QString
+TypeImage::resourceName(const QString& type_) const
 {
-  return QString(rc_path_).arg(std::move(getRCName(type_)));
+  auto it = FILE_TYPE_ICONS.find(type_.toLower());
+  return getRCName(it != FILE_TYPE_ICONS.end() ? it->second : "generic.png");
 }
 
-/*!
- * \public
- * \brief TypeImage::type
- *        Returns the name of the resource based on the given file name
- * extension
- * \param fileName - full file name: ex. file.doc*
- * \return QPixmap
- */
 QPixmap
-TypeImage::type(const QString fileName_)
+TypeImage::type(const QString& fileName_) const
 {
-  QFileInfo fi(fileName_);
-  QPixmap pix_;
-  pix_.load(resourceName(fi.suffix().toLower()));
-  return pix_;
+  QFileInfo fileInfo(fileName_);
+  return QPixmap(resourceName(fileInfo.suffix()));
 }
 
-/*!
- * \public
- * \brief TypeImage::isImageViewable
- *        Checks if an image file is viewable within the system
- * \param fileName
- * \return true | false
- */
 bool
-TypeImage::isImageViewable(const QString fileName_)
+TypeImage::isImageViewable(const QString& fileName_) const
 {
-  if (fileName_.isEmpty()) {
-    return false;
-  }
-
-  if (qsizetype suff_idx_ = fileName_.lastIndexOf("."); suff_idx_ > 0) {
-    const auto suff_str_ = fileName_.mid(suff_idx_ + 1, fileName_.size());
-    return stringListViewable().contains(suff_str_);
-  }
-  return false;
+  return QImageReader::supportedImageFormats().contains(
+    QFileInfo(fileName_).suffix().toLower().toUtf8());
 }
 
-/*!
- * \public
- * \brief TypeImage::stringListViewable
- * Returns a QStringList() type with the extensions
- * of visible types
- * This is used in various parts of the program to
- * various purposes
- *
- * Supported native image formats
- *
- * BMP	Windows Bitmap - Read/write
- * GIF	Graphic Interchange Format (optional) -	Read
- * JPG	Joint Photographic Experts Group - Read/write
- * JPEG	Joint Photographic Experts Group - Read/write
- * PNG	Portable Network Graphics - Read/write
- * PBM	Portable Bitmap	- Read
- * PGM	Portable Graymap - Read
- * PPM	Portable Pixmap	- Read/write
- * XBM	X11 Bitmap - Read/write
- * XPM	X11 Pixmap - Read/write
- *
- * \return QStringList
- */
 QStringList
-TypeImage::stringListViewable()
+TypeImage::stringListViewable() const
 {
-  const QStringList list_ = { "bmp", "gif", "jpg", "jpeg", "png",
-                              "pbm", "pgm", "ppm", "xbm",  "xpm" };
-  return list_;
+  QStringList supportedFormats;
+  for (const auto& format : QImageReader::supportedImageFormats()) {
+    supportedFormats.append(QString::fromUtf8(format));
+  }
+  return supportedFormats;
 }
