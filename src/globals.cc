@@ -349,7 +349,7 @@ const int
 Globals::whatCategory(QWidget* parent)
 {
   QList<QRadioButton*> allObj_ = parent->findChildren<QRadioButton*>();
-  for (const QRadioButton* rb_ : allObj_) {
+  for (const QRadioButton* rb_ : std::as_const(allObj_)) {
     if (rb_->objectName() == "radioButton_Company" && rb_->isChecked()) {
       return static_cast<int>(Categories::Company);
     } else if (rb_->objectName() == "radioButton_Customer" &&
@@ -391,7 +391,7 @@ const bool
 Globals::isCategoryChecked(QWidget* parent)
 {
   QList<QRadioButton*> allObj_ = parent->findChildren<QRadioButton*>();
-  for (const QRadioButton* rb_ : allObj_) {
+  for (const QRadioButton* rb_ : std::as_const(allObj_)) {
     if (rb_->objectName() == "radioButton_Company" && rb_->isChecked()) {
       return true;
     } else if (rb_->objectName() == "radioButton_Customer" &&

@@ -49,7 +49,7 @@ FormEntities::FormEntities(QWidget* parent)
           SLOT(checkBox_ZipCode_Type_stateChanged(int)));
 
   connect(ui->checkBox_showStates,
-          &QCheckBox::stateChanged,
+          &QCheckBox::checkStateChanged,
           this,
           [this](int state_) {
             switch (state_) {

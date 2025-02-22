@@ -61,12 +61,8 @@
 #include <QtConcurrent>
 #include <QtMath>
 
-// #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
-// #include <QtSql/QSqlField>
 #include <QtSql/QSqlQuery>
-// #include <QtSql/QSqlQueryModel>
-// #include <QtSql/QSqlRecord>
 
 /*!
  * \brief The Globals class

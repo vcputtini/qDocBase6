@@ -68,11 +68,15 @@ class DialogAbout
   Q_OBJECT
 
 public:
-  explicit DialogAbout(QWidget* parent = nullptr);
+    /*!
+   * \brief DialogAbout::DialogAbout
+   * \param parent
+   */
+    explicit DialogAbout(QWidget *parent = nullptr);
 
-  QGraphicsScene* scene_;
-  QGraphicsPixmapItem* pixItemLogo_;
-  QGraphicsTextItem* textItem_;
+    QGraphicsScene *scene_;
+    QGraphicsPixmapItem *pixItemLogo_;
+    QGraphicsTextItem *textItem_;
 
 private:
 };

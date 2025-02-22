@@ -78,9 +78,7 @@
 #include <QtConcurrent/QtConcurrentMap>
 #include <QtConcurrent/QtConcurrentRun>
 
-#include <QtPdf/QPdfDocument>
-#include <QtPdf/QtPdf>
-#include <QtPdfWidgets/QPdfView>
+// #include <QtPdfWidgets/QPdfView>
 
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>

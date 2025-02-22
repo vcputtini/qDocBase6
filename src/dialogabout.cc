@@ -40,14 +40,12 @@
 #include "dialogabout.h"
 #include "progid.h"
 
-/*!
- * \brief DialogAbout::DialogAbout
- * \param parent
- */
 DialogAbout::DialogAbout(QWidget* parent)
   : QDialog(parent)
 {
   setupUi(this);
+
+  // qDebug() << __FUNCTION__;
 
   graphicsViewAbout->resetTransform();
 
@@ -99,7 +97,7 @@ DialogAbout::DialogAbout(QWidget* parent)
   textItem_->setPlainText(sText);
   scene_->addItem(textItem_);
 
-  QGraphicsTextItem* text[10];
+  QGraphicsTextItem* text[15];
   text[0] = new QGraphicsTextItem;
   /*!
    *  \attention PLEASE, DO NOT REMOVE THIS COPYRIGHT. Just add yours!
@@ -133,7 +131,6 @@ DialogAbout::DialogAbout(QWidget* parent)
   text[2]->setPos(posH_, linha += fmArial10.lineSpacing());
   text[2]->setPlainText(sText);
   scene_->addItem(text[2]);
-
   QString verCC_{};
 #if (defined Q_OS_LINUX) && (defined __GNUC__)
   verCC_ = tr("Compiler: GNU GCC %1.%2.%3")
@@ -172,11 +169,10 @@ DialogAbout::DialogAbout(QWidget* parent)
         << tr("The program is provided AS IS whith NO WARRANTY OF ANY KIND")
         << tr("INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND")
         << tr("FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.");
-
   int i = 2;
   linha += fmArial10.lineSpacing() * 2;
 
-  for (const QString& s : lText) {
+  for (const QString& s : std::as_const(lText)) {
     text[i] = new QGraphicsTextItem;
     text[i]->setTransform(tf);
     text[i]->setFont(fontArial10);

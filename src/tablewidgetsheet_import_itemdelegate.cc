@@ -201,11 +201,6 @@ ImportBatchitemDelegate::paint(QPainter* painter,
       index.model()->data(index, Qt::DisplayRole).toString();
     QStyleOptionViewItem myOption = option;
     myOption.displayAlignment = Qt::AlignRight | Qt::AlignVCenter;
-    // if (int i_ = text.toInt(); text.toFloat() == i_) {
-    //   text += ",00";
-    // } else {
-    // text = QString::number(text.toFloat(), 'f', 2);
-    //}
     drawDisplay(painter, myOption, myOption.rect, text_);
     drawFocus(painter, myOption, myOption.rect);
   } else {
