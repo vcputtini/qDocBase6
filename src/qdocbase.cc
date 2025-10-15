@@ -33,12 +33,12 @@ qDocBase::qDocBase(QWidget* parent)
              "database\nOnce this is done, restart the application."),
           QMessageBox::Abort);
         QApplication::restoreOverrideCursor();
-        qTerminate();
+        std::terminate();
       } else {
         QMessageBox::critical(
           this, ProgId::Name, sqlDb_.lastError().text(), QMessageBox::Abort);
         QApplication::restoreOverrideCursor();
-        qTerminate();
+        std::terminate();
       }
     }
   } else {

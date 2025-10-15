@@ -159,7 +159,8 @@ DialogAbout::DialogAbout(QWidget* parent)
     tr("Build Arch: %0").arg(QSysInfo::buildCpuArchitecture());
   QString currArch_ =
     tr("Current Arch: %0").arg(QSysInfo::currentCpuArchitecture());
-  const QString buildTimeStamp = QString("Built in: %0").arg(__TIMESTAMP__);
+  const QString buildTimeStamp =
+    QString("Built in: %0").arg(QDate::currentDate().toString());
 
   QStringList lText;
   lText << verCC_ << buildTimeStamp << buildArch_ << currArch_
