@@ -38,7 +38,7 @@ main(int argc, char* argv[])
   QSettings settings(ProgId::strOrganization(), ProgId::strInternalName());
   if (settings.value("readonly").toBool()) {
     w.setWindowTitle(
-      QString("%0 [%1]").arg(ProgId::strName()).arg(QObject::tr("Read only")));
+      QString("%0 [%1]").arg(ProgId::strName(), QObject::tr("Read only")));
   } else {
     w.setWindowTitle(ProgId::strName());
   }
