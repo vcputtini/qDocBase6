@@ -3,7 +3,7 @@
  <class>FormEntities</class>
  <widget class="QWidget" name="FormEntities">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::WindowModality::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -38,10 +38,10 @@
         </size>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+        <enum>QFrame::Shadow::Raised</enum>
        </property>
        <widget class="QGroupBox" name="groupBox_Categories">
         <property name="geometry">
@@ -113,10 +113,10 @@
          </rect>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::Shape::StyledPanel</enum>
         </property>
         <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
+         <enum>QFrame::Shadow::Raised</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
@@ -153,7 +153,7 @@
          <number>10</number>
         </property>
         <property name="segmentStyle">
-         <enum>QLCDNumber::Flat</enum>
+         <enum>QLCDNumber::SegmentStyle::Flat</enum>
         </property>
         <property name="intValue" stdset="0">
          <number>0</number>
@@ -172,7 +172,7 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Data Corrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::Shape::StyledPanel</enum>
         </property>
         <property name="text">
          <string>00/00/0000</string>
@@ -183,16 +183,16 @@
      <item row="0" column="1">
       <widget class="QFrame" name="frame_Entities">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+        <enum>QFrame::Shadow::Raised</enum>
        </property>
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
          <widget class="QToolBox" name="toolBox_Entities">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_Search">
            <property name="geometry">
@@ -234,10 +234,10 @@
              </size>
             </property>
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::Shape::StyledPanel</enum>
             </property>
             <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+             <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout_5">
              <item row="0" column="0">
@@ -250,7 +250,7 @@
              <item row="0" column="1">
               <spacer name="horizontalSpacer">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -276,13 +276,13 @@
              <item row="1" column="0" colspan="3">
               <widget class="QTableView" name="tableView_Entities">
                <property name="editTriggers">
-                <set>QAbstractItemView::NoEditTriggers</set>
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                </property>
                <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
+                <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
                </property>
                <property name="selectionBehavior">
-                <enum>QAbstractItemView::SelectRows</enum>
+                <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
                </property>
                <property name="sortingEnabled">
                 <bool>false</bool>
@@ -507,7 +507,7 @@
              <string>999999</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
             </property>
             <property name="placeholderText">
              <string>Número</string>
@@ -573,7 +573,7 @@
               <x>10</x>
               <y>310</y>
               <width>1126</width>
-              <height>180</height>
+              <height>200</height>
              </rect>
             </property>
             <property name="sizePolicy">
@@ -585,17 +585,17 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>180</height>
+              <height>200</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>180</height>
+              <height>200</height>
              </size>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_Enterprises">
              <attribute name="title">
@@ -611,13 +611,16 @@
                </rect>
               </property>
               <property name="toolTip">
-               <string>Brasil CNPJ</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brasil CNPJ (Modelo atual e modelo alfanumérico)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="statusTip">
                <string/>
               </property>
               <property name="inputMask">
-               <string>00.000.000/0000-00</string>
+               <string>&gt;NN.NNN.NNN/NNNN-99;_</string>
+              </property>
+              <property name="text">
+               <string>../-</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -630,7 +633,7 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>40</y>
+                <y>70</y>
                 <width>171</width>
                 <height>26</height>
                </rect>
@@ -642,7 +645,7 @@
                <string/>
               </property>
               <property name="inputMask">
-               <string>000.000.000.000</string>
+               <string>&gt;000.000.000.000;_</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -655,7 +658,7 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>70</y>
+                <y>100</y>
                 <width>171</width>
                 <height>26</height>
                </rect>
@@ -683,7 +686,7 @@
               <property name="geometry">
                <rect>
                 <x>190</x>
-                <y>40</y>
+                <y>70</y>
                 <width>171</width>
                 <height>26</height>
                </rect>
@@ -695,7 +698,7 @@
                <string/>
               </property>
               <property name="inputMask">
-               <string>00.000.000-a</string>
+               <string>&gt;00.000.000-N;_</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -707,8 +710,8 @@
              <widget class="lineEdit_fieldChecking" name="lineEdit_BR_CPF">
               <property name="geometry">
                <rect>
-                <x>190</x>
-                <y>10</y>
+                <x>10</x>
+                <y>40</y>
                 <width>171</width>
                 <height>26</height>
                </rect>
@@ -720,7 +723,7 @@
                <string/>
               </property>
               <property name="inputMask">
-               <string>000.000.000-00</string>
+               <string>&gt;000.000.000-00;_</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -733,7 +736,7 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>100</y>
+                <y>130</y>
                 <width>711</width>
                 <height>26</height>
                </rect>
@@ -752,7 +755,7 @@
               <property name="geometry">
                <rect>
                 <x>190</x>
-                <y>70</y>
+                <y>100</y>
                 <width>341</width>
                 <height>26</height>
                </rect>
@@ -822,7 +825,7 @@
                <item>
                 <spacer name="horizontalSpacer_7">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -866,7 +869,7 @@
                <item>
                 <spacer name="horizontalSpacer_8">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -894,7 +897,7 @@
                <string>99999</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
               </property>
               <property name="clearButtonEnabled">
                <bool>true</bool>
@@ -916,7 +919,7 @@
                <string>9999</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
               </property>
               <property name="clearButtonEnabled">
                <bool>true</bool>
@@ -963,7 +966,7 @@
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Código do Cliente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="frameShape">
-                  <enum>QFrame::Panel</enum>
+                  <enum>QFrame::Shape::Panel</enum>
                  </property>
                  <property name="text">
                   <string/>
@@ -1101,13 +1104,13 @@
                </rect>
               </property>
               <property name="frameShape">
-               <enum>QFrame::Box</enum>
+               <enum>QFrame::Shape::Box</enum>
               </property>
               <property name="text">
                <string>01</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
              <widget class="QLabel" name="label_2">
@@ -1120,13 +1123,13 @@
                </rect>
               </property>
               <property name="frameShape">
-               <enum>QFrame::Box</enum>
+               <enum>QFrame::Shape::Box</enum>
               </property>
               <property name="text">
                <string>02</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </widget>
@@ -1150,7 +1153,7 @@
                 </sizepolicy>
                </property>
                <property name="sizeAdjustPolicy">
-                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                <enum>QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow</enum>
                </property>
                <property name="iconSize">
                 <size>
@@ -1203,7 +1206,7 @@
              <item>
               <widget class="comboBox_Phones_P" name="comboBox_Phone_2">
                <property name="sizeAdjustPolicy">
-                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                <enum>QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow</enum>
                </property>
                <property name="iconSize">
                 <size>
@@ -1250,7 +1253,7 @@
              <item>
               <widget class="comboBox_Phones_P" name="comboBox_Phone_3">
                <property name="sizeAdjustPolicy">
-                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                <enum>QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow</enum>
                </property>
                <property name="iconSize">
                 <size>
@@ -1297,7 +1300,7 @@
              <item>
               <widget class="comboBox_Phones_P" name="comboBox_Phone_4">
                <property name="sizeAdjustPolicy">
-                <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                <enum>QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow</enum>
                </property>
                <property name="iconSize">
                 <size>
@@ -1347,10 +1350,10 @@
              <string>Sugestão</string>
             </property>
             <property name="popupMode">
-             <enum>QToolButton::DelayedPopup</enum>
+             <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextOnly</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
             </property>
             <property name="autoRaise">
              <bool>false</bool>

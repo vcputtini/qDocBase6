@@ -1,5 +1,6 @@
 #include "formentities.h"
-#include "br_cnpj.h"
+#include "br_cnpj_alpha.h"
+#include "br_cnpj_v1.h"
 #include "br_cpf.h"
 #include "customuppervalidator.h"
 #include "lineedit_fieldchecking.h"
@@ -122,6 +123,8 @@ FormEntities::FormEntities(QWidget* parent)
 
   ui->comboBox_StatesAbbrev->addItems(globals.stateAbbrev);
   ui->comboBox_StatesAbbrev->setCurrentText("SP");
+
+  ui->lineEdit_BR_CNPJ->clear();
 
   /*!
    *  \brief Configures for the fields to only receive capital letters and valid
@@ -869,11 +872,9 @@ FormEntities::fieldChecks()
     return false;
   }
   // ------------------------------------------------------------------------
-  BR_CNPJ cnpj_;
-  BR_CPF cpf_;
 
-  cnpj_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
-  cpf_.setData(ui->lineEdit_BR_CPF->text().simplified());
+  BR_CPF* cpf_ = new BR_CPF;
+  cpf_->setData(ui->lineEdit_BR_CPF->text().simplified());
 
   auto cnpjExists_ = [](const QString& cnpj_) {
     QSqlQuery qry_(
@@ -885,85 +886,87 @@ FormEntities::fieldChecks()
     }
     return false;
   };
-  auto cpfExists_ = [](const QString& cpf_) {
-    QSqlQuery qry_(
-      QString("SELECT ET_IDENT FROM DOCENTITY WHERE ET_BR_CPF='%0'")
-        .arg(cpf_.simplified()));
-    if (qry_.exec()) {
-      bool ok_ = qry_.next();
-      return ok_;
-    }
-    return false;
-  };
 
-  if (cnpj_.isNullOrEmpty() && cpf_.isNullOrEmpty()) {
-    QMessageBox::warning(
-      this,
-      ProgId::Name,
-      Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
-      QMessageBox::Close);
-    ui->lineEdit_BR_CNPJ->setFocus();
-    return false;
-  } else if (!cnpj_.isNullOrEmpty() && cpf_.isNullOrEmpty()) {
-    if (!cnpj_.isValid()) {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-          .arg(tr("CNPJ"))
-          .arg(cnpj_.section().vd_)
-          .arg(cnpj_.VD()),
-        QMessageBox::Close);
-      ui->lineEdit_BR_CNPJ->setFocus();
-      return false;
+  BR_CNPJ_V1 cnpj_v1_;
+  switch (cnpj_v1_.whichCNPJModel()) {
+    case BR_CNPJ_V1::TRModel::V1: {
+      cnpj_v1_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
+
+      if (cnpj_v1_.isNullOrEmpty()) {
+        QMessageBox::warning(
+          this,
+          ProgId::Name,
+          Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
+          QMessageBox::Close);
+        ui->lineEdit_BR_CNPJ->setFocus();
+        return false;
+      }
+      if (cnpj_v1_.isValid()) {
+        if (cnpjExists_(cnpj_v1_.data())) {
+          QMessageBox::warning(
+            this,
+            ProgId::Name,
+            QString(Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
+                      .text())
+              .arg(cnpj_v1_.data()),
+            QMessageBox::Close);
+          ui->lineEdit_BR_CNPJ->setFocus();
+          return false;
+        }
+      } else {
+        QMessageBox::warning(
+          this,
+          ProgId::Name,
+          QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
+            .arg(tr("CNPJ"))
+            .arg(cnpj_v1_.section().V1_dv_)
+            .arg(cnpj_v1_.VD()),
+          QMessageBox::Close);
+        ui->lineEdit_BR_CNPJ->setFocus();
+        return false;
+      }
+      break;
     }
-    if (cnpjExists_(cnpj_.data())) {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        QString(
-          Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS).text())
-          .arg(cnpj_.data()),
-        QMessageBox::Close);
-      ui->lineEdit_BR_CNPJ->setFocus();
-      return false;
+    default: {
+      BR_CNPJ_ALPHA cnpj_alpha_;
+      cnpj_alpha_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
+      qDebug() << cnpj_alpha_.data();
+      if (cnpj_alpha_.isNullOrEmpty()) {
+        QMessageBox::warning(
+          this,
+          ProgId::Name,
+          Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
+          QMessageBox::Close);
+        ui->lineEdit_BR_CNPJ->setFocus();
+        return false;
+      }
+
+      if (cnpj_alpha_.isValid()) {
+        if (cnpjExists_(cnpj_alpha_.data())) {
+          QMessageBox::warning(
+            this,
+            ProgId::Name,
+            QString(Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
+                      .text())
+              .arg(cnpj_alpha_.data()),
+            QMessageBox::Close);
+          ui->lineEdit_BR_CNPJ->setFocus();
+          return false;
+        }
+      } else {
+        QMessageBox::warning(
+          this,
+          ProgId::Name,
+          QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
+            .arg(tr("CNPJ"))
+            .arg(cnpj_alpha_.section().dv_)
+            .arg(cnpj_alpha_.VD()),
+          QMessageBox::Close);
+        ui->lineEdit_BR_CNPJ->setFocus();
+        return false;
+      }
     }
-  } else if (cnpj_.isNullOrEmpty() && !cpf_.isNullOrEmpty()) {
-    if (!cpf_.isValid()) {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-          .arg(tr("CPF"))
-          .arg(cpf_.section().vd_)
-          .arg(cpf_.VD()),
-        QMessageBox::Close);
-      ui->lineEdit_BR_CPF->setFocus();
-      return false;
-    }
-    if (cpfExists_(cpf_.data())) {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        QString(
-          Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS).text())
-          .arg(cpf_.data()),
-        QMessageBox::Close);
-      ui->lineEdit_BR_CPF->setFocus();
-      return false;
-    }
-  } else {
-    QMessageBox::warning(
-      this,
-      ProgId::Name,
-      Messages_->set(MessagesNS::Tokens::GEN_WARN_00002).text(),
-      QMessageBox::Close);
-    ui->lineEdit_BR_CNPJ->clear();
-    ui->lineEdit_BR_CPF->clear();
-    ui->lineEdit_BR_CNPJ->setFocus();
-    return false;
   }
-
   // ------------------------------------------------------------------------
   if (ui->radioButton_Projects->isChecked()) {
     if ((ui->lineEdit_ProjId->text().toInt() == 0) ||
