@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (c) 2007-2024                                                 *
+ * Copyright (c) 2025                                                *
  *      Volnei Cervi Puttini.  All rights reserved.                        *
  *      vcputtini@gmail.com
  *                                                                         *
@@ -33,85 +33,54 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "abstracttr.h"
+#ifndef BR_CNPJ_ALPHA_H
+#define BR_CNPJ_ALPHA_H
 
-AbstractTR::AbstractTR()
-  : data_{}
-  , vd_{}
-  , valid_{ false }
-{
-}
+#include <QChar>
+#include <QRegularExpression>
+#include <QString>
 
-void
-AbstractTR::setData(const QString& other_)
-{
-  data_ = std::move(other_);
-  if (!isNullOrEmpty()) {
-    normalize();
-  }
-}
-
-// operator overload
+#include "taxypayregistrybase.h"
 
 /*!
- * \overload
- * \brief AbstractITR::operator==()
- * This overload compares byte for byte between
- * two data.
- * If any of the bytes are different
- * stops processing and returns false
- * \param other_
- * \return true | false
+ * \brief The NEW FORMAT of BR_CNPJ_ALPHA class
+ *
+ * \note In Brazil, the National Register of Legal Entities is a unique number
+ * that identifies a legal entity and other types of legal arrangement without
+ * legal personality with the Brazilian Federal Revenue Service.
+ * (Source:wikipedia)
+ *
+ * The National Register of Legal Entities is identified by the acronym CNPJ
+ * ('C'adastro 'N'acional de 'P'essoa 'J'uridica).
+ *
+ * New alphanumeric format for CNPJ in Brazil
+ *                         NEW MODEL
+ *  NUMERICAL ONLY         CNPJ ALPHANUMERIC CNPJ
+ *  NN.NNN.NNN/NNNN-NN --> SS.SSS.SSS/SSSS-NN
+ *
  */
-bool
-AbstractTR::operator==(const AbstractTR& other_) const
+class BR_CNPJ_ALPHA : public TaxypayRegistryBase
 {
-  if (valid_) {
-    const QString temp_ = std::move(data_);
-    for (int i = 0; i < temp_.size(); i++) {
-      if (temp_[i] != other_.data_[i]) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
+public:
+  explicit BR_CNPJ_ALPHA();
 
-/*!
- * \overload
- * \brief AbstractITR::operator!=()
- * \param other_
- * \return true | false
- */
-bool
-AbstractTR::operator!=(const AbstractTR& other_) const
-{
-  return !(*this == other_);
-}
+  const QString data(TRFormat format_ = TRFormat::Delimited) override;
+  const int VD() override;
+  Section section() override;
+  bool isNullOrEmpty() override;
 
-/*!
- * \public
- * \brief AbstractITR::isValid
- * \return
- */
-bool
-AbstractTR::isValid()
-{
-  if (valid_) {
-    if (int vd_ = data_.right(2).toInt(); vd_ != calcVD()) {
-      return false;
-    }
-  }
-  return valid_;
-}
+private:
+  const int weights[13] = { 0, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-/*!
- * \public
- * \brief AbstractITR::isNullOrEmpty
- * \return
- */
-bool
-AbstractTR::isNullOrEmpty()
-{
-  return data_.isNull() || (data_ == "..-") || (data_ == "../-");
-}
+  int calculateVD(const int* values_, int len_) const;
+  int charToValue(QChar c) const;
+  QString removeMask(QString cnpj_) const;
+
+protected:
+  QString VD_;
+
+  void normalize() override;
+  const int calcVD() const override;
+};
+
+#endif // BR_CNPJ_ALPHA_H

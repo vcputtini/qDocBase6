@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (c) 2007-2024                                                 *
+ * Copyright (c) 2025                                                *
  *      Volnei Cervi Puttini.  All rights reserved.                        *
  *      vcputtini@gmail.com
  *                                                                         *
@@ -33,59 +33,136 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef ABSTRACTTR_H
-#define ABSTRACTTR_H
+#include "br_cnpj_alpha.h"
 
-#include <QDebug>
-#include <QString>
+BR_CNPJ_ALPHA::BR_CNPJ_ALPHA() {}
 
 /*!
- * \class
- * \abstract
- * \brief The AbstractTR class
- * \note Taxpayer Registry
+ * \brief BR_CNPJ_ALPHA::data
+ * \param format_
+ * \return
  */
-class AbstractTR
+const QString
+BR_CNPJ_ALPHA::data(TRFormat format_)
 {
-public:
-  AbstractTR();
+  return QString();
+}
 
-  bool operator==(const AbstractTR& other_) const;
-  bool operator!=(const AbstractTR& other_) const;
+/*!
+ * \public
+ * \brief BR_CNPJ_ALPHA::VD
+ * \return
+ */
+const int
+BR_CNPJ_ALPHA::VD()
+{
+  return calcVD();
+}
 
-  void setData(const QString& other_ = QString());
-  bool isNullOrEmpty();
+/*!
+ * \public
+ * \brief BR_CNPJ_ALPHA::section
+ * \return
+ */
+BR_CNPJ_ALPHA::Section
+BR_CNPJ_ALPHA::section()
+{
+  Section sec;
+  return sec;
+}
 
-  enum DataFormats
-  {
-    NumericOnly,
-    Delimited
-  };
+bool
+BR_CNPJ_ALPHA::isNullOrEmpty()
+{
+  return true;
+}
 
-  struct stDelimiter
-  {
-    int pos_;
-    QString delemiter_;
-  };
+void
+BR_CNPJ_ALPHA::normalize()
+{
+}
 
-  struct Section
-  {
-    QString first_;
-    QString second_;
-    QString vd_;
-  };
+/*!
+ * \private
+ * \brief BR_CNPJ_ALPHA::charToValue
+ * \param c
+ * \return
+ */
+int
+BR_CNPJ_ALPHA::charToValue(QChar c) const
+{
+  if (c.isDigit()) {
+    return c.digitValue();
+  } else if (c.isLetter()) {
+    // A=17, B=18,... Z=42
+    return c.toUpper().unicode() - 48;
+  } else {
+    // valid_ = false;
+    // data_ = "Caractere inválido no CNPJ alfanumérico.";
+  }
+  return '#'; // Invalid
+}
 
-  virtual bool isValid();
-  virtual const QString data(DataFormats format_ = DataFormats::Delimited) = 0;
-  virtual const int VD() = 0;
-  virtual Section section() = 0;
+/*!
+ * \private
+ * \brief BR_CNPJ_ALPHA::removeMask
+ * \param cnpj_
+ * \return
+ */
+QString
+BR_CNPJ_ALPHA::removeMask(QString cnpj_) const
+{
+  return cnpj_.remove(QRegularExpression("[./-]"));
+}
 
-protected:
-  QString data_;
-  int vd_;
-  bool valid_;
+/*!
+ * \protected
+ * \brief BR_CNPJ_ALPHA::calcVD
+ * \return
+ */
+const int
+BR_CNPJ_ALPHA::calcVD() const
+{
+  QString cnpj = removeMask(data_);
 
-  virtual void normalize() = 0;
-  virtual const int calcVD() const = 0;
-};
-#endif // ABSTRACTITR_H
+  if (cnpj.length() != lengthWithoutVD_) {
+    throw std::invalid_argument(
+      "CNPJ deve ter 12 caracteres alfanuméricos para cálculo de DV.");
+  }
+
+  QVector<int> values_;
+  values_.reserve(lengthWithoutVD_ + 1);
+
+  for (int i = 0; i < lengthWithoutVD_; ++i) {
+    values_.append(charToValue(cnpj[i]));
+  }
+
+  int dv1_ = calculateVD(values_.constData(), lengthWithoutVD_);
+  values_.append(dv1_);
+
+  int dv2_ = calculateVD(values_.constData(), lengthWithoutVD_ + 1);
+
+  // qDebug() << dv1_ << "  " << dv2_ << QString::number(dv1_);
+  QString retVD_ = QString::number(dv1_) + QString::number(dv2_);
+
+  return retVD_.toInt();
+}
+
+/*!
+ * \private
+ * \brief BR_CNPJ_ALPHA::calculateVD
+ * \param values_
+ * \param len_
+ * \return
+ */
+int
+BR_CNPJ_ALPHA::calculateVD(const int* values_, int len_) const
+{
+  int sum_ = 0;
+  // Weights do not start at zero (index 0 ignored)
+  for (int i = 0; i < len_; ++i) {
+    sum_ += values_[i] * weights[i + 1];
+  }
+  int mod_ = sum_ % 11;
+  return (mod_ < 2) ? 0 : 11 - mod_;
+}
