@@ -86,8 +86,6 @@ set(PROJECT_SOURCES
         ${SRC_FOLDER}/multifiles.h
         ${SRC_FOLDER}/globals.cc
         ${SRC_FOLDER}/globals.h
-        ${SRC_FOLDER}/br_cnpj.cc
-        ${SRC_FOLDER}/br_cnpj.h
         ${SRC_FOLDER}/br_cpf.cc
         ${SRC_FOLDER}/br_cpf.h
         ${SRC_FOLDER}/progid.cc
@@ -115,8 +113,6 @@ set(PROJECT_SOURCES
         ${SRC_FOLDER}/messages.cc
         ${SRC_FOLDER}/messages.h
         ${SRC_FOLDER}/qdocbase.qrc
-        ${SRC_FOLDER}/abstracttr.cc
-        ${SRC_FOLDER}/abstracttr.h
         ${SRC_FOLDER}/formimportbatch.h
         ${SRC_FOLDER}/formimportbatch.cc
         ${SRC_FOLDER}/formimportbatch.ui
@@ -132,9 +128,15 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    find_package(Qt6 REQUIRED COMPONENTS Core)
+
     qt_add_executable(qDocBase6
         MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}        
+        ${PROJECT_SOURCES}
+
+        src/taxypayregistrybase.h src/taxypayregistrybase.cpp
+        src/br_cnpj_v1.h src/br_cnpj_v1.cpp
+        src/br_cnpj_alpha.h src/br_cnpj_alpha.cpp
     )
     qt_create_translation(QM_FILES ${SRC_FOLDER}/${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
@@ -150,6 +152,7 @@ target_link_libraries(qDocBase6 PRIVATE
     Qt${QT_VERSION_MAJOR}::PrintSupport
     #Qt${QT_VERSION_MAJOR}::Pdf
 )
+target_link_libraries(qDocBase6 PRIVATE Qt6::Core)
 
 set_target_properties(qDocBase6 PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
