@@ -37,8 +37,11 @@
 #define BR_CNPJ_ALPHA_H
 
 #include <QChar>
+#include <QLineEdit>
+#include <QObject>
 #include <QRegularExpression>
 #include <QString>
+#include <QValidator>
 
 #include "taxypayregistrybase.h"
 

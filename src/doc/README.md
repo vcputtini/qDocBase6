@@ -17,14 +17,14 @@ We're available to hire for analysis and implementation of possible adaptations 
 
 ### Dependencies for Compilation:
 - At least C++17
-- Qt Framework 6.7.x
+- Qt Framework 6.10.x
 
 ### My Environment
-- Fedora 40
-- clang 18.0.0
-- [g]cc (GCC) 14.1.1 20240701 (Red Hat 14.1.1-7)
-- cmake version 3.28.x
-- QtCreator 13.0.x (Code Style: clang-format -style=Mozilla)
+- Fedora 42
+- clang version 20.1.8 (Fedora 20.1.8-4.fc42)
+- [g]cc  15.2.1 20251022 (Red Hat 15.2.1-3)
+- cmake version 3.31.x
+- QtCreator 18.0.x (Code Style: clang-format -style=Mozilla)
 
 ### informations
 - Windows is registered trademark of Microsoft Inc. USA.
