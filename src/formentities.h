@@ -54,8 +54,11 @@
 #include <QProgressDialog>
 #include <QPushButton>
 #include <QRectF>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QString>
 #include <QStringList>
+#include <QValidator>
 #include <QVariant>
 #include <QWidget>
 
@@ -128,7 +131,7 @@ private:
   void update_data(int state_);
   void execQuery(ExecSaveOrUpdate control_);
 
-  bool fieldChecks();
+  bool fieldChecks(ExecSaveOrUpdate control_ = ExecSaveOrUpdate::Save);
 
   static constexpr const char* insert_stmnt_ =
     "INSERT INTO DOCENTITY ( "

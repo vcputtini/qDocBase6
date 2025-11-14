@@ -10,6 +10,9 @@
 #include "sysactivity.h"
 #include "ui_formentities.h"
 
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
+
 // STDC++
 #include <limits>
 
@@ -125,12 +128,15 @@ FormEntities::FormEntities(QWidget* parent)
   ui->comboBox_StatesAbbrev->setCurrentText("SP");
 
   ui->lineEdit_BR_CNPJ->clear();
+  ui->lineEdit_BR_CPF->clear();
+  ui->lineEdit_BR_IM->clear();
+  ui->lineEdit_BR_RG->clear();
 
   /*!
    *  \brief Configures for the fields to only receive capital letters and valid
    * characters
    */
-  QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
+  const QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
   for (QLineEdit* le_ : allLineEdits) {
     if (le_->objectName() == "lineEditEmail1" ||
         le_->objectName() == "lineEditEmail2" ||
@@ -164,6 +170,12 @@ FormEntities::FormEntities(QWidget* parent)
   ui->lineEdit_ProjYear->setText(
     std::move(QDate::currentDate().toString("yyyy")));
 
+  connect(
+    ui->toolBox_Entities, &QToolBox::currentChanged, this, [this](int index) {
+      if (index == 0) {
+        update_data(Qt::Checked);
+      }
+    });
   update_data(Qt::Checked);
 
   ui->lineEdit_Name->setFocus();
@@ -542,7 +554,7 @@ FormEntities::saveRecord()
 void
 FormEntities::updateRecord()
 {
-  if (fieldChecks()) {
+  if (fieldChecks(ExecSaveOrUpdate::Update)) {
     execQuery(ExecSaveOrUpdate::Update);
   }
 }
@@ -778,7 +790,7 @@ FormEntities::execQuery(ExecSaveOrUpdate control_)
  * \brief FormEntities::fieldChecks
  */
 bool
-FormEntities::fieldChecks()
+FormEntities::fieldChecks(ExecSaveOrUpdate control_)
 {
   if (ui->radioButton_Basic->isChecked()) {
     ui->lineEdit_Name->setFieldDescription(
@@ -901,8 +913,13 @@ FormEntities::fieldChecks()
         ui->lineEdit_BR_CNPJ->setFocus();
         return false;
       }
+
       if (cnpj_v1_.isValid()) {
-        if (cnpjExists_(cnpj_v1_.data())) {
+        bool exits_ = cnpjExists_(cnpj_v1_.data());
+        if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
+          return true;
+        }
+        if (exits_) {
           QMessageBox::warning(
             this,
             ProgId::Name,
@@ -918,9 +935,9 @@ FormEntities::fieldChecks()
           this,
           ProgId::Name,
           QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-            .arg(tr("CNPJ"))
-            .arg(cnpj_v1_.section().V1_dv_)
-            .arg(cnpj_v1_.VD()),
+            .arg(tr("CNPJ"),
+                 cnpj_v1_.section().V1_dv_,
+                 QString::number(cnpj_v1_.VD())),
           QMessageBox::Close);
         ui->lineEdit_BR_CNPJ->setFocus();
         return false;
@@ -930,7 +947,6 @@ FormEntities::fieldChecks()
     default: {
       BR_CNPJ_ALPHA cnpj_alpha_;
       cnpj_alpha_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
-      qDebug() << cnpj_alpha_.data();
       if (cnpj_alpha_.isNullOrEmpty()) {
         QMessageBox::warning(
           this,
@@ -942,7 +958,11 @@ FormEntities::fieldChecks()
       }
 
       if (cnpj_alpha_.isValid()) {
-        if (cnpjExists_(cnpj_alpha_.data())) {
+        bool exits_ = cnpjExists_(cnpj_alpha_.data());
+        if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
+          return true;
+        }
+        if (exits_) {
           QMessageBox::warning(
             this,
             ProgId::Name,
@@ -958,9 +978,9 @@ FormEntities::fieldChecks()
           this,
           ProgId::Name,
           QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-            .arg(tr("CNPJ"))
-            .arg(cnpj_alpha_.section().dv_)
-            .arg(cnpj_alpha_.VD()),
+            .arg(tr("CNPJ"),
+                 cnpj_alpha_.section().dv_,
+                 QString::number(cnpj_alpha_.VD())),
           QMessageBox::Close);
         ui->lineEdit_BR_CNPJ->setFocus();
         return false;
@@ -1043,7 +1063,7 @@ FormEntities::fieldChecks()
 void
 FormEntities::clearRecord()
 {
-  QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
+  const QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
   for (QLineEdit* le_ : allLineEdits) {
     le_->clear();
   }
@@ -1085,12 +1105,12 @@ FormEntities::printRecords(bool isActive_)
             "ET_CATEG=2 THEN '%2' "
             "WHEN ET_CATEG=3 THEN '%3' WHEN ET_CATEG=4 THEN '%4' WHEN "
             "ET_CATEG=5 THEN '%5' END AS NAME_CATEGORY, ")
-      .arg(Globals::categoryName(Globals::Categories::Company))
-      .arg(Globals::categoryName(Globals::Categories::Customer))
-      .arg(Globals::categoryName(Globals::Categories::Supplier))
-      .arg(Globals::categoryName(Globals::Categories::Project))
-      .arg(Globals::categoryName(Globals::Categories::Custom))
-      .arg(Globals::categoryName(Globals::Categories::Basic)) +
+      .arg(Globals::categoryName(Globals::Categories::Company),
+           Globals::categoryName(Globals::Categories::Customer),
+           Globals::categoryName(Globals::Categories::Supplier),
+           Globals::categoryName(Globals::Categories::Project),
+           Globals::categoryName(Globals::Categories::Custom),
+           Globals::categoryName(Globals::Categories::Basic)) +
     QString(
       "ET_NOME, ET_ALIAS, ET_ENDER, ET_ADDRNUMBER, ET_BAIR, ET_CITY, ET_UF, "
       "ET_POSTALCODE, "
@@ -1105,8 +1125,7 @@ FormEntities::printRecords(bool isActive_)
       "ET_OUTESPEC, ET_OUTNFLD1, ET_OUTDFLD1, ET_OUTNFLD2, ET_OUTDFLD2, "
       "ET_OUTOBS ") +
     QString("FROM DOCENTITY A WHERE ET_ATIVO=%0 AND ET_CATEG=%1")
-      .arg((isActive_ ? 1 : 0))
-      .arg(Globals::whatCategory(this))
+      .arg((isActive_ ? 1 : 0), Globals::whatCategory(this))
   };
 
   PrintActiveEntities print_;
@@ -1169,7 +1188,7 @@ FormEntities::setTabCategories(Globals::Categories categ_)
 void
 FormEntities::enableFields()
 {
-  QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
+  const QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
   for (QLineEdit* le_ : allLineEdits) {
     le_->setEnabled(true);
   }
@@ -1186,7 +1205,7 @@ FormEntities::enableFields()
 void
 FormEntities::disableFields()
 {
-  QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
+  const QList<QLineEdit*> allLineEdits = this->findChildren<QLineEdit*>();
   for (QLineEdit* le_ : allLineEdits) {
     if (le_->objectName() != "lineEdit_Name") {
       le_->setEnabled(false);

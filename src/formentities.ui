@@ -617,7 +617,7 @@
                <string/>
               </property>
               <property name="inputMask">
-               <string>&gt;NN.NNN.NNN/NNNN-99;_</string>
+               <string>&gt;HH.HHH.HHH/HHHH-99;_</string>
               </property>
               <property name="text">
                <string>../-</string>
