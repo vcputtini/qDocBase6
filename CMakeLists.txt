@@ -135,8 +135,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
 
         src/taxypayregistrybase.h src/taxypayregistrybase.cpp
-        src/br_cnpj_v1.h src/br_cnpj_v1.cpp
-        src/br_cnpj_alpha.h src/br_cnpj_alpha.cpp
+        src/br_cnpj_v1.h src/br_cnpj_v1.cc
+        src/br_cnpj_alpha.h src/br_cnpj_alpha.cc
     )
     qt_create_translation(QM_FILES ${SRC_FOLDER}/${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
