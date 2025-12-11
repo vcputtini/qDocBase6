@@ -394,7 +394,7 @@ FormEntities::tableView_Entities_doubleClicked(QModelIndex index_)
       std::move(showData_("ET_OBIDPROJ").toString()));
 
     ui->lineEdit_CustomSpecTitle->setText(
-      std::move(showData_("ET_OUTSPEC").toString()));
+      std::move(showData_("ET_OUTESPEC").toString()));
     ui->lineEdit_CustomNameFld_1->setText(
       std::move(showData_("ET_OUTNFLD1").toString()));
     ui->lineEdit_CustomDataFld_1->setText(
@@ -403,6 +403,8 @@ FormEntities::tableView_Entities_doubleClicked(QModelIndex index_)
       std::move(showData_("ET_OUTNFLD2").toString()));
     ui->lineEdit_CustomDataFld_2->setText(
       std::move(showData_("ET_OUTDFLD2").toString()));
+    ui->lineEdit_CustomComments->setText(
+      std::move(showData_("ET_OUTOBS").toString()));
   }
 }
 
@@ -885,108 +887,113 @@ FormEntities::fieldChecks(ExecSaveOrUpdate control_)
   }
   // ------------------------------------------------------------------------
 
-  BR_CPF* cpf_ = new BR_CPF;
-  cpf_->setData(ui->lineEdit_BR_CPF->text().simplified());
+  if (!ui->tab_Customs->isActiveWindow()) {
 
-  auto cnpjExists_ = [](const QString& cnpj_) {
-    QSqlQuery qry_(
-      QString("SELECT ET_IDENT FROM DOCENTITY WHERE ET_BR_CNPJ='%0'")
-        .arg(cnpj_.simplified()));
-    if (qry_.exec()) {
-      bool ok_ = qry_.next();
-      return ok_;
-    }
-    return false;
-  };
+    BR_CPF* cpf_ = new BR_CPF;
+    cpf_->setData(ui->lineEdit_BR_CPF->text().simplified());
 
-  BR_CNPJ_V1 cnpj_v1_;
-  switch (cnpj_v1_.whichCNPJModel()) {
-    case BR_CNPJ_V1::TRModel::V1: {
-      cnpj_v1_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
-
-      if (cnpj_v1_.isNullOrEmpty()) {
-        QMessageBox::warning(
-          this,
-          ProgId::Name,
-          Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
-          QMessageBox::Close);
-        ui->lineEdit_BR_CNPJ->setFocus();
-        return false;
+    auto cnpjExists_ = [](const QString& cnpj_) {
+      QSqlQuery qry_(
+        QString("SELECT ET_IDENT FROM DOCENTITY WHERE ET_BR_CNPJ='%0'")
+          .arg(cnpj_.simplified()));
+      if (qry_.exec()) {
+        bool ok_ = qry_.next();
+        return ok_;
       }
+      return false;
+    };
 
-      if (cnpj_v1_.isValid()) {
-        bool exits_ = cnpjExists_(cnpj_v1_.data());
-        if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
-          return true;
-        }
-        if (exits_) {
+    BR_CNPJ_V1 cnpj_v1_;
+    switch (cnpj_v1_.whichCNPJModel()) {
+      case BR_CNPJ_V1::TRModel::V1: {
+        cnpj_v1_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
+
+        if (cnpj_v1_.isNullOrEmpty()) {
           QMessageBox::warning(
             this,
             ProgId::Name,
-            QString(Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
-                      .text())
-              .arg(cnpj_v1_.data()),
+            Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
             QMessageBox::Close);
           ui->lineEdit_BR_CNPJ->setFocus();
           return false;
         }
-      } else {
-        QMessageBox::warning(
-          this,
-          ProgId::Name,
-          QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-            .arg(tr("CNPJ"),
-                 cnpj_v1_.section().V1_dv_,
-                 QString::number(cnpj_v1_.VD())),
-          QMessageBox::Close);
-        ui->lineEdit_BR_CNPJ->setFocus();
-        return false;
-      }
-      break;
-    }
-    default: {
-      BR_CNPJ_ALPHA cnpj_alpha_;
-      cnpj_alpha_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
-      if (cnpj_alpha_.isNullOrEmpty()) {
-        QMessageBox::warning(
-          this,
-          ProgId::Name,
-          Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
-          QMessageBox::Close);
-        ui->lineEdit_BR_CNPJ->setFocus();
-        return false;
-      }
 
-      if (cnpj_alpha_.isValid()) {
-        bool exits_ = cnpjExists_(cnpj_alpha_.data());
-        if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
-          return true;
-        }
-        if (exits_) {
+        if (cnpj_v1_.isValid()) {
+          bool exits_ = cnpjExists_(cnpj_v1_.data());
+          if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
+            return true;
+          }
+          if (exits_) {
+            QMessageBox::warning(
+              this,
+              ProgId::Name,
+              QString(
+                Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
+                  .text())
+                .arg(cnpj_v1_.data()),
+              QMessageBox::Close);
+            ui->lineEdit_BR_CNPJ->setFocus();
+            return false;
+          }
+        } else {
           QMessageBox::warning(
             this,
             ProgId::Name,
-            QString(Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
-                      .text())
-              .arg(cnpj_alpha_.data()),
+            QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
+              .arg(tr("CNPJ"),
+                   cnpj_v1_.section().V1_dv_,
+                   QString::number(cnpj_v1_.VD())),
             QMessageBox::Close);
           ui->lineEdit_BR_CNPJ->setFocus();
           return false;
         }
-      } else {
-        QMessageBox::warning(
-          this,
-          ProgId::Name,
-          QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
-            .arg(tr("CNPJ"),
-                 cnpj_alpha_.section().dv_,
-                 QString::number(cnpj_alpha_.VD())),
-          QMessageBox::Close);
-        ui->lineEdit_BR_CNPJ->setFocus();
-        return false;
+        break;
+      }
+      default: {
+        BR_CNPJ_ALPHA cnpj_alpha_;
+        cnpj_alpha_.setData(ui->lineEdit_BR_CNPJ->text().simplified());
+        if (cnpj_alpha_.isNullOrEmpty()) {
+          QMessageBox::warning(
+            this,
+            ProgId::Name,
+            Messages_->set(MessagesNS::Tokens::GEN_WARN_00022).text(),
+            QMessageBox::Close);
+          ui->lineEdit_BR_CNPJ->setFocus();
+          return false;
+        }
+
+        if (cnpj_alpha_.isValid()) {
+          bool exits_ = cnpjExists_(cnpj_alpha_.data());
+          if (exits_ && (control_ == ExecSaveOrUpdate::Update)) {
+            return true;
+          }
+          if (exits_) {
+            QMessageBox::warning(
+              this,
+              ProgId::Name,
+              QString(
+                Messages_->set(MessagesNS::Tokens::DB_WARN_RECALREADYEXISTS)
+                  .text())
+                .arg(cnpj_alpha_.data()),
+              QMessageBox::Close);
+            ui->lineEdit_BR_CNPJ->setFocus();
+            return false;
+          }
+        } else {
+          QMessageBox::warning(
+            this,
+            ProgId::Name,
+            QString(Messages_->set(MessagesNS::Tokens::GEN_WARN_00008).text())
+              .arg(tr("CNPJ"),
+                   cnpj_alpha_.section().dv_,
+                   QString::number(cnpj_alpha_.VD())),
+            QMessageBox::Close);
+          ui->lineEdit_BR_CNPJ->setFocus();
+          return false;
+        }
       }
     }
-  }
+  } //  !ui->tab_Customs->isActiveWindow()
   // ------------------------------------------------------------------------
   if (ui->radioButton_Projects->isChecked()) {
     if ((ui->lineEdit_ProjId->text().toInt() == 0) ||
