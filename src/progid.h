@@ -49,7 +49,7 @@ public:
   ~ProgId();
 
   static const constexpr char* Name{ "DocBase" };
-  static constexpr const char* Version{ "6.0.0" };
+  static constexpr const char* Version{ "6.0.1" };
 
   static const QString strInternalName();
   static const QString strName();
