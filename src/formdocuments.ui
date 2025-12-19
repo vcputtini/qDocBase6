@@ -45,24 +45,24 @@
           </size>
          </property>
          <property name="frameShape">
-          <enum>QFrame::Box</enum>
+          <enum>QFrame::Shape::Box</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Shadow::Raised</enum>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QSplitter" name="splitter_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <widget class="QFrame" name="frame_Entities_ViewSelect">
           <property name="frameShape">
-           <enum>QFrame::Box</enum>
+           <enum>QFrame::Shape::Box</enum>
           </property>
           <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+           <enum>QFrame::Shadow::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_9">
            <item row="0" column="0">
@@ -111,7 +111,7 @@
                  </size>
                 </property>
                 <property name="editTriggers">
-                 <set>QAbstractItemView::DoubleClicked</set>
+                 <set>QAbstractItemView::EditTrigger::DoubleClicked</set>
                 </property>
                 <property name="wordWrap">
                  <bool>true</bool>
@@ -187,7 +187,7 @@
            <item row="0" column="2" colspan="3">
             <spacer name="horizontalSpacer">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -207,7 +207,7 @@
            <item row="1" column="3" colspan="2">
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -220,13 +220,13 @@
            <item row="2" column="0" colspan="5">
             <widget class="TableView_Documents_P" name="TableView_Documents">
              <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
              </property>
              <property name="selectionMode">
-              <enum>QAbstractItemView::ExtendedSelection</enum>
+              <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
             </widget>
            </item>
@@ -240,7 +240,7 @@
            <item row="3" column="4">
             <spacer name="horizontalSpacer_3">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -290,10 +290,10 @@
           </size>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::Shape::StyledPanel</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Shadow::Raised</enum>
          </property>
          <widget class="QGroupBox" name="groupBox_CustomFields">
           <property name="geometry">
@@ -317,19 +317,6 @@
            <bool>false</bool>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QLineEdit" name="lineEdit_CustomFiled_1">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="maxLength">
-              <number>255</number>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0">
             <widget class="QLineEdit" name="lineEdit_CustomFiled_2">
              <property name="enabled">
@@ -343,34 +330,8 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="lineEdit_CustomFiled_3">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="maxLength">
-              <number>255</number>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLineEdit" name="lineEdit_CustomFiled_4">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="maxLength">
-              <number>255</number>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLineEdit" name="lineEdit_CustomFiled_5">
+           <item row="0" column="0">
+            <widget class="QLineEdit" name="lineEdit_CustomFiled_1">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -421,7 +382,7 @@
               <number>9</number>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -456,7 +417,7 @@
               <number>12</number>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
              <property name="placeholderText">
               <string>Valor</string>
@@ -520,7 +481,7 @@
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Data Corrente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::Box</enum>
+           <enum>QFrame::Shape::Box</enum>
           </property>
           <property name="text">
            <string>31/12/2023</string>
@@ -542,7 +503,7 @@
            <number>15</number>
           </property>
           <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
+           <enum>QLineEdit::EchoMode::Password</enum>
           </property>
           <property name="cursorPosition">
            <number>0</number>
@@ -595,8 +556,7 @@
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset theme="document-save">
-               <normaloff>.</normaloff>.</iconset>
+              <iconset theme="document-save"/>
              </property>
             </widget>
            </item>
@@ -612,8 +572,7 @@
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset theme="edit-redo">
-               <normaloff>.</normaloff>.</iconset>
+              <iconset theme="edit-redo"/>
              </property>
             </widget>
            </item>
@@ -629,8 +588,7 @@
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset theme="edit-delete">
-               <normaloff>.</normaloff>.</iconset>
+              <iconset theme="edit-delete"/>
              </property>
             </widget>
            </item>
@@ -668,13 +626,13 @@
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Último código gravado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::Box</enum>
+           <enum>QFrame::Shape::Box</enum>
           </property>
           <property name="text">
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </widget>
@@ -682,7 +640,7 @@
        <item row="0" column="1">
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <widget class="QFrame" name="frame_BrowseFiles">
           <property name="sizePolicy">
@@ -704,10 +662,10 @@
            </size>
           </property>
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::Shape::StyledPanel</enum>
           </property>
           <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+           <enum>QFrame::Shadow::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
@@ -735,8 +693,7 @@
                 <string>...</string>
                </property>
                <property name="icon">
-                <iconset theme="edit-redo">
-                 <normaloff>.</normaloff>.</iconset>
+                <iconset theme="edit-redo"/>
                </property>
               </widget>
              </item>
@@ -754,13 +711,13 @@
               <bool>true</bool>
              </property>
              <property name="resizeMode">
-              <enum>QListView::Adjust</enum>
+              <enum>QListView::ResizeMode::Adjust</enum>
              </property>
              <property name="spacing">
               <number>5</number>
              </property>
              <property name="viewMode">
-              <enum>QListView::IconMode</enum>
+              <enum>QListView::ViewMode::IconMode</enum>
              </property>
              <property name="uniformItemSizes">
               <bool>true</bool>
@@ -848,9 +805,6 @@
   <tabstop>lineEdit_DocIdent</tabstop>
   <tabstop>lineEdit_CustomFiled_1</tabstop>
   <tabstop>lineEdit_CustomFiled_2</tabstop>
-  <tabstop>lineEdit_CustomFiled_3</tabstop>
-  <tabstop>lineEdit_CustomFiled_4</tabstop>
-  <tabstop>lineEdit_CustomFiled_5</tabstop>
   <tabstop>textEdit_Comments</tabstop>
   <tabstop>comboBox_Files</tabstop>
   <tabstop>toolButton_FindFiles</tabstop>

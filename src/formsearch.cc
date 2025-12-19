@@ -197,10 +197,7 @@ FormSearch::fillCustomFields()
   ui->comboBox_FieldName->clear();
   Settings settings_;
   QStringList list_ = { std::move(settings_.CFldName(1)),
-                        std::move(settings_.CFldName(2)),
-                        std::move(settings_.CFldName(3)),
-                        std::move(settings_.CFldName(4)),
-                        std::move(settings_.CFldName(5)) };
+                        std::move(settings_.CFldName(2)) };
   ui->comboBox_FieldName->insertItems(0, std::move(list_));
 }
 

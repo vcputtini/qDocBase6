@@ -197,30 +197,6 @@ FormDocuments::FormDocuments(QWidget* parent)
       settings.value("field02Len").toInt());
   }
 
-  if (settings.value("field03Act").toBool()) {
-    ui->lineEdit_CustomFiled_3->setEnabled(true);
-    ui->lineEdit_CustomFiled_3->setPlaceholderText(
-      settings.value("field03Name").toString());
-    ui->lineEdit_CustomFiled_3->setMaxLength(
-      settings.value("field03Len").toInt());
-  }
-
-  if (settings.value("field04Act").toBool()) {
-    ui->lineEdit_CustomFiled_4->setEnabled(true);
-    ui->lineEdit_CustomFiled_4->setPlaceholderText(
-      settings.value("field04Name").toString());
-    ui->lineEdit_CustomFiled_4->setMaxLength(
-      settings.value("field04Len").toInt());
-  }
-
-  if (settings.value("field05Act").toBool()) {
-    ui->lineEdit_CustomFiled_5->setEnabled(true);
-    ui->lineEdit_CustomFiled_5->setPlaceholderText(
-      settings.value("field05Name").toString());
-    ui->lineEdit_CustomFiled_5->setMaxLength(
-      settings.value("field05Len").toInt());
-  }
-
   loadListThumbs(ui->comboBox_Files->currentText());
 }
 
@@ -775,12 +751,6 @@ FormDocuments::saveRecord()
                      ui->lineEdit_CustomFiled_1->text().simplified());
   qry_doc_.bindValue(":ST_FIELD02DATA",
                      ui->lineEdit_CustomFiled_2->text().simplified());
-  qry_doc_.bindValue(":ST_FIELD03DATA",
-                     ui->lineEdit_CustomFiled_3->text().simplified());
-  qry_doc_.bindValue(":ST_FIELD04DATA",
-                     ui->lineEdit_CustomFiled_4->text().simplified());
-  qry_doc_.bindValue(":ST_FIELD05DATA",
-                     ui->lineEdit_CustomFiled_5->text().simplified());
   qry_doc_.exec();
   if (qry_doc_.lastError().isValid()) {
     QMessageBox::warning(
@@ -936,15 +906,6 @@ FormDocuments::updateRecord()
   qry_doc_.bindValue(
     ":ST_FIELD02DATA",
     std::move(ui->lineEdit_CustomFiled_2->text().simplified()));
-  qry_doc_.bindValue(
-    ":ST_FIELD03DATA",
-    std::move(ui->lineEdit_CustomFiled_3->text().simplified()));
-  qry_doc_.bindValue(
-    ":ST_FIELD04DATA",
-    std::move(ui->lineEdit_CustomFiled_4->text().simplified()));
-  qry_doc_.bindValue(
-    ":ST_FIELD05DATA",
-    std::move(ui->lineEdit_CustomFiled_5->text().simplified()));
 
   qry_doc_.bindValue(":ST_IDENT",
                      std::move(ui->label_Ident->text().toULongLong()));
@@ -1670,9 +1631,6 @@ FormDocuments::showDataFieldsOnForm()
 
   ui->lineEdit_CustomFiled_1->setText(recDoc.st_field01data);
   ui->lineEdit_CustomFiled_2->setText(recDoc.st_field02data);
-  ui->lineEdit_CustomFiled_3->setText(recDoc.st_field03data);
-  ui->lineEdit_CustomFiled_4->setText(recDoc.st_field04data);
-  ui->lineEdit_CustomFiled_5->setText(recDoc.st_field05data);
 
   ui->textEdit_Comments->setText(recDoc.st_remark);
 
