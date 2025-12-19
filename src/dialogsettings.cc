@@ -200,24 +200,6 @@ DialogSettings::readSettings()
     ui->checkBox_Activated_02->setChecked(
       (settings.value("field02Act").toInt() == 1 ? true : false));
   }
-  if (!settings.value("field03Name").toString().isEmpty()) {
-    ui->lineEdit_Fld03Name->setText(settings.value("field03Name").toString());
-    ui->spinBox_Len_03->setValue(settings.value("field03Len").toInt());
-    ui->checkBox_Activated_03->setChecked(
-      (settings.value("field03Act").toInt() == 1 ? true : false));
-  }
-  if (!settings.value("field04Name").toString().isEmpty()) {
-    ui->lineEdit_Fld04Name->setText(settings.value("field04Name").toString());
-    ui->spinBox_Len_04->setValue(settings.value("field04Len").toInt());
-    ui->checkBox_Activated_04->setChecked(
-      (settings.value("field04Act").toInt() == 1 ? true : false));
-  }
-  if (!settings.value("field05Name").toString().isEmpty()) {
-    ui->lineEdit_Fld05Name->setText(settings.value("field05Name").toString());
-    ui->spinBox_Len_05->setValue(settings.value("field05Len").toInt());
-    ui->checkBox_Activated_05->setChecked(
-      (settings.value("field05Act").toInt() == 1 ? true : false));
-  }
 }
 
 /*!
@@ -432,66 +414,6 @@ DialogSettings::writeSettings()
     settings.setValue("field02Name", "");
     settings.setValue("field02Len", "0");
     settings.setValue("field02Act", "0");
-  }
-
-  if (ui->checkBox_Activated_03->isChecked()) {
-    if (!ui->lineEdit_Fld03Name->text().isEmpty() &&
-        ui->spinBox_Len_03->value() > 0) {
-      settings.setValue("field03Name", ui->lineEdit_Fld03Name->text());
-      settings.setValue("field03Len", ui->spinBox_Len_03->value());
-      settings.setValue("field03Act",
-                        (ui->checkBox_Activated_03->isChecked() ? 1 : 0));
-    } else {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        tr("Você não pode definir um campo com tamanho zero."),
-        QMessageBox::Close);
-    }
-  } else {
-    settings.setValue("field03Name", "");
-    settings.setValue("field03Len", "0");
-    settings.setValue("field03Act", "0");
-  }
-
-  if (ui->checkBox_Activated_04->isChecked()) {
-    if (!ui->lineEdit_Fld04Name->text().isEmpty() &&
-        ui->spinBox_Len_01->value() > 0) {
-      settings.setValue("field04Name", ui->lineEdit_Fld04Name->text());
-      settings.setValue("field04Len", ui->spinBox_Len_04->value());
-      settings.setValue("field04Act",
-                        (ui->checkBox_Activated_04->isChecked() ? 1 : 0));
-    } else {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        tr("Você não pode definir um campo com tamanho zero."),
-        QMessageBox::Close);
-    }
-  } else {
-    settings.setValue("field04Name", "");
-    settings.setValue("field04Len", "0");
-    settings.setValue("field04Act", "0");
-  }
-
-  if (ui->checkBox_Activated_05->isChecked()) {
-    if (!ui->lineEdit_Fld05Name->text().isEmpty() &&
-        ui->spinBox_Len_05->value() > 0) {
-      settings.setValue("field05Name", ui->lineEdit_Fld05Name->text());
-      settings.setValue("field05Len", ui->spinBox_Len_05->value());
-      settings.setValue("field05Act",
-                        (ui->checkBox_Activated_05->isChecked() ? 1 : 0));
-    } else {
-      QMessageBox::warning(
-        this,
-        ProgId::Name,
-        tr("Você não pode definir um campo com tamanho zero."),
-        QMessageBox::Close);
-    }
-  } else {
-    settings.setValue("field05Name", "");
-    settings.setValue("field05Len", "0");
-    settings.setValue("field05Act", "0");
   }
 
   // -------------------------------------------------------------------------

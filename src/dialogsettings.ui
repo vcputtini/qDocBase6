@@ -39,10 +39,10 @@
    <item row="0" column="0" colspan="2">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::Shape::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
+      <enum>QFrame::Shadow::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
@@ -55,7 +55,7 @@
       <item row="1" column="0">
        <widget class="QTabWidget" name="tabWidgetSettings">
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tabAutothentication">
          <attribute name="title">
@@ -77,7 +77,7 @@
            <number>20</number>
           </property>
           <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
+           <enum>QLineEdit::EchoMode::Password</enum>
           </property>
           <property name="placeholderText">
            <string>Senha</string>
@@ -156,7 +156,7 @@
               <number>15</number>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::EchoMode::Password</enum>
              </property>
              <property name="placeholderText">
               <string>Senha</string>
@@ -525,141 +525,6 @@ para o seu modelo de cadastro.</string>
             <number>15</number>
            </property>
           </widget>
-          <widget class="QSpinBox" name="spinBox_Len_03">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>120</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="maximum">
-            <number>254</number>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_Fld03Name">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>120</y>
-             <width>221</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maxLength">
-            <number>15</number>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="checkBox_Activated_03">
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>120</y>
-             <width>91</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ativado</string>
-           </property>
-          </widget>
-          <widget class="QSpinBox" name="spinBox_Len_04">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>150</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="maximum">
-            <number>254</number>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_Fld04Name">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>150</y>
-             <width>221</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maxLength">
-            <number>15</number>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="checkBox_Activated_04">
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>150</y>
-             <width>91</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ativado</string>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="checkBox_Activated_05">
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>180</y>
-             <width>91</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ativado</string>
-           </property>
-          </widget>
-          <widget class="QSpinBox" name="spinBox_Len_05">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>180</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="maximum">
-            <number>254</number>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_Fld05Name">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>180</y>
-             <width>221</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maxLength">
-            <number>15</number>
-           </property>
-          </widget>
           <widget class="QCheckBox" name="checkBox_Activated_02">
            <property name="geometry">
             <rect>
@@ -683,7 +548,7 @@ para o seu modelo de cadastro.</string>
    <item row="1" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -699,8 +564,7 @@ para o seu modelo de cadastro.</string>
       <string>Salvar</string>
      </property>
      <property name="icon">
-      <iconset theme="document-save">
-       <normaloff>.</normaloff>.</iconset>
+      <iconset theme="document-save"/>
      </property>
     </widget>
    </item>
@@ -731,15 +595,6 @@ para o seu modelo de cadastro.</string>
   <tabstop>lineEdit_Fld02Name</tabstop>
   <tabstop>spinBox_Len_02</tabstop>
   <tabstop>checkBox_Activated_02</tabstop>
-  <tabstop>lineEdit_Fld03Name</tabstop>
-  <tabstop>spinBox_Len_03</tabstop>
-  <tabstop>checkBox_Activated_03</tabstop>
-  <tabstop>lineEdit_Fld04Name</tabstop>
-  <tabstop>spinBox_Len_04</tabstop>
-  <tabstop>checkBox_Activated_04</tabstop>
-  <tabstop>lineEdit_Fld05Name</tabstop>
-  <tabstop>spinBox_Len_05</tabstop>
-  <tabstop>checkBox_Activated_05</tabstop>
   <tabstop>pushButtonSave</tabstop>
   <tabstop>radioButton_DbDateEUA</tabstop>
   <tabstop>radioButton_DbDateEUR</tabstop>
